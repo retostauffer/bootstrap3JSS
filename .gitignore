@@ -1,0 +1,6 @@
+
+# Ignore this; just have it there as a reference for now (devel)
+/styles/variables.less
+
+# Swap files
+*.swp

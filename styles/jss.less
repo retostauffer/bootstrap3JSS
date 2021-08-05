@@ -1,0 +1,83 @@
+
+
+
+// Change the default color
+@primary: #ff0033;
+
+@navbar-default-bg: #0088b5;   // JSS blue
+
+
+@brand-primary:         #0088b5; // JSS blue
+@brand-secondary:       #00CA44; // JSS green
+@brand-success:         #5cb85c;
+@brand-info:            #5bc0de;
+@brand-warning:         #f0ad4e;
+@brand-danger:          #d9534f;
+
+// In general: remove round edges
+@border-radius-base:  0;
+@border-radius-large: 0;
+@border-radius-small: 0;
+
+
+// ------------------ styling navbar ----------------------
+
+// Navbar default
+@navbar-default-color:               white;
+@navbar-default-link-color:          white;
+@navbar-default-link-hover-color:    black;
+@navbar-default-link-hover-bg:       @brand-secondary;
+
+
+
+// Hamburger; navbar toggle
+@navbar-default-toggle-hover-bg:           @brand-secondary;
+@navbar-default-toggle-icon-bar-bg:        white;
+@navbar-default-toggle-border-color:       #ddd;
+
+
+#jss-logo {
+    padding: 0 3em;
+
+    a.navbar-brand {
+        display: none;
+        width: 80%;
+        height: auto;
+
+        img {
+            width: 100%;
+            max-height: 100%;
+        }
+
+        @media (min-width: @screen-sm-min) {
+            display: block;
+        }
+
+    }
+
+}
+
+// // Hide JSS logo when page is getting xs; that is also the
+// // time the hamburger menu replaces the main navbar.
+// @media (max-width: @screen-sm-min) {
+//     body { background-color: red; }
+// }
+
+
+// ----------------- custom block publisher ---------------
+#jss-publisher {
+    background-color:            black;
+
+    div {
+        div {
+            color:               white;
+            font-size:          .8em;
+        }
+
+        @media (max-width: @screen-md-min) {
+            div:nth-child(2) {
+                display: none;
+            }
+        }
+    }
+}
