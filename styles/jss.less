@@ -20,6 +20,48 @@
 @border-radius-small: 0;
 
 
+// Remove border from blocks
+.pkp_block {
+    border: none;
+
+    .title {
+        font-size:           1em;
+        font-weight:         bold;
+        border:              none;
+        background-color:    transparent;
+        padding:             0;
+        margin:              0 15px 10px 15px;
+    }
+
+    // Content lists
+    div.content {
+        padding: 0 15px;
+
+        ul {
+            li {
+                padding: 0;
+                border: none;
+            }
+        }
+    }
+}
+
+.block_web_feed {
+    div.content {
+        padding: 0 15px;
+
+        ul {
+            clear: both;
+            li {
+                float: left;
+                border: none;
+                padding: 0 0.3em 0 0;
+            }
+        }
+    }
+}
+
+
 // ------------------ styling navbar ----------------------
 
 // Navbar default
@@ -27,8 +69,6 @@
 @navbar-default-link-color:          white;
 @navbar-default-link-hover-color:    black;
 @navbar-default-link-hover-bg:       @brand-secondary;
-
-
 
 // Hamburger; navbar toggle
 @navbar-default-toggle-hover-bg:           @brand-secondary;
@@ -42,11 +82,10 @@
     a.navbar-brand {
         display: none;
         width: 80%;
-        height: auto;
+        height: 5em;
 
         img {
-            width: 100%;
-            max-height: 100%;
+            max-width: 100%;
         }
 
         @media (min-width: @screen-sm-min) {
@@ -57,16 +96,10 @@
 
 }
 
-// // Hide JSS logo when page is getting xs; that is also the
-// // time the hamburger menu replaces the main navbar.
-// @media (max-width: @screen-sm-min) {
-//     body { background-color: red; }
-// }
-
-
 // ----------------- custom block publisher ---------------
 #jss-publisher {
     background-color:            black;
+    padding: 0.25em 0;
 
     div {
         div {
