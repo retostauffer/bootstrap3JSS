@@ -96,7 +96,7 @@
 
 }
 
-// ----------------- custom block publisher ---------------
+// ---------- custom header block publisher ---------------
 #jss-publisher {
     background-color:            black;
     padding: 0.25em 0;
@@ -105,6 +105,10 @@
         div {
             color:               white;
             font-size:          .8em;
+
+            span {
+                padding: 0 2em;
+            } 
         }
 
         @media (max-width: @screen-md-min) {
@@ -114,3 +118,24 @@
         }
     }
 }
+
+
+// ----------------- custom block publisher ---------------
+#jss-announcement-list {
+    ul {
+        list-style: none;
+        padding: 0 15px;
+
+        li {
+            padding: 0 !important;
+            margin: 0 !important;
+            border: none !important;
+        }
+    }
+}
+
+
+
+
+
+

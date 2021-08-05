@@ -20,6 +20,18 @@
 		{if $sidebarCode}
 			<aside id="sidebar" class="pkp_structure_sidebar left col-xs-12 col-sm-2 col-md-4" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
 				{$sidebarCode}
+
+				<div class="pkp_block" id="jss-announcement-list">
+					<h2 class="title pkp_screen_reader">List of latest announcements</h2>
+					<h2 class="title">Latest announcements</h2>
+						
+					<ul>
+						{foreach from=$announcements item=announcement}
+							{include file="frontend/objects/announcement_list.tpl"}
+						{/foreach}
+					</ul>
+				</div>
+
 			</aside><!-- pkp_sidebar.left -->
 		{/if}
 	{/if}

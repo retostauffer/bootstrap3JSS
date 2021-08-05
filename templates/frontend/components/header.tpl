@@ -37,14 +37,13 @@
 		<div class="container-fluid" id="jss-publisher">
 			<div class="row">
 				<div class="col-sm-7 col-md-4">
-                    {$jssPublishedBy}
-                    {$jssPublisherTop}
+                    <span>{$jssPublishedBy}</span>
 				</div>
 				<div class="col-md-5">
-					Editors-in-chief: {$jssEditorsInChief}
+					<span>Editors-in-chief: {$jssEditorsInChief}</span>
 				</div>
 				<div class="col-sm-5 col-md-3 text-right">
-					ISSN {$jssISSN}; CODEN {$jssCoden}
+					<span>ISSN {$jssISSN}; CODEN {$jssCoden}</span>
 				</div>
 			</div>
 		</div>
@@ -54,7 +53,7 @@
 		<header class="navbar navbar-default" id="headerNavigationContainer" role="banner">
 
 			{* User profile, login, etc, navigation menu*}
-			<div class="container-fluid">
+			<div class="container">
 				<div id="jss-logo" class="row">
 					{capture assign="homeUrl"}
 						{url page="index" router=$smarty.const.ROUTE_PAGE}
@@ -74,9 +73,9 @@
 						{load_menu name="user" id="navigationUser" ulClass="nav nav-pills tab-list pull-right"}
 					</nav>
 				</div><!-- .row -->
-			</div><!-- .container-fluid -->
+			</div><!-- .container -->
 
-			<div class="container-fluid">
+			<div class="container">
 
 				<div class="navbar-header">
 
@@ -122,7 +121,7 @@
 					</nav>
 				{/if}
 
-			</div><!-- .pkp_head_wrapper -->
+			</div><!-- end .container -->
 		</header><!-- .pkp_structure_head -->
 
 		{* Wrapper for page content and sidebars *}

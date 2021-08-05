@@ -46,7 +46,6 @@ class BootstrapThreeJSSThemePlugin extends ThemePlugin {
                 ],
             ]
         );
-
         $this->addOption("jss_published_by", "FieldText", [
                 "name" => "jss_published_by",
                 "label" => "Published by ...",
