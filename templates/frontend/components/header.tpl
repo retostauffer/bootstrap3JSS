@@ -33,19 +33,22 @@
 			</ul>
 		</nav>
 
+        {if $jssPublisherTop == "1"}
 		<div class="container-fluid" id="jss-publisher">
 			<div class="row">
 				<div class="col-sm-7 col-md-4">
-					Published by the Foundation for Open Access Statistics
+                    {$jssPublishedBy}
+                    {$jssPublisherTop}
 				</div>
 				<div class="col-md-5">
-					Editors-in-chief: Bettina Grün, Torsten Hothorn, Rebecca Killick, Edzer Pebesma, Achim Zeileis
+					Editors-in-chief: {$jssEditorsInChief}
 				</div>
 				<div class="col-sm-5 col-md-3 text-right">
-					 ISSN 1548-7660; CODEN JSSOBK
+					ISSN {$jssISSN}; CODEN {$jssCoden}
 				</div>
 			</div>
 		</div>
+        {/if}
 
 		{* Header *}
 		<header class="navbar navbar-default" id="headerNavigationContainer" role="banner">
