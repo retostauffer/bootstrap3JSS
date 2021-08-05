@@ -8,7 +8,8 @@
 
 
 @brand-primary:         #0088b5; // JSS blue
-@brand-secondary:       #00CA44; // JSS green
+////@brand-secondary:       #00CA44; // JSS green
+@brand-secondary:       #eb8634; // JSS orange
 @brand-success:         #5cb85c;
 @brand-info:            #5bc0de;
 @brand-warning:         #f0ad4e;
@@ -94,6 +95,86 @@
 
     }
 
+}
+
+// ---------- adjusting breadcrump style ------------------
+
+.cmp_breadcrumbs {
+    ol.breadcrumb {
+        background-color: transparent;
+        padding-left: 0;
+    }
+}
+
+
+/////// ---------- article styling -----------------------------
+/////article.article-details {
+/////    header {
+/////        h1 {
+/////            color: @brand-primary;
+/////        }
+/////    }
+/////}
+
+icon.jss-pdf {
+    display: inline-block;
+    position: relative;
+    top: 0.15em;
+    left: -0.2em;
+    width: 1em;
+    height: 1em;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.article-details {
+    .download {
+        padding: 0 0 1.5em 0;
+        .btn-primary {
+            display: inline;
+            border: 2px solid @brand-primary;
+            color: @brand-primary;
+            border-radius: .2em;
+            background-color: transparent;
+
+            &:hover {
+                background-color: @brand-secondary;
+                color: white;
+            }
+        }
+        .btn-default {
+            display: inline;
+            border: none;
+            padding: 0.25 1em;
+            margin: 0;
+            color: @brand-primary;
+
+            &:hover {
+                color: @brand-secondary;
+                background-color: transparent;
+            }
+        }
+    }
+}
+.article-details {
+    .download-main {
+        padding-top: 5em;
+    }
+}
+
+.article-details {
+    .date-published, .issue, .section {
+        border: none;
+        padding: 0;
+    }
+}
+
+.article-details {
+    .list-group {
+        .list-group-item {
+            padding-bottom: 1.5em;
+        }
+    }
 }
 
 // ---------- custom header block publisher ---------------
