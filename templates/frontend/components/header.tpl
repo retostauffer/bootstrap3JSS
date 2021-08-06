@@ -50,7 +50,7 @@
         {/if}
 
 		{* Header *}
-		<header class="navbar navbar-default" id="headerNavigationContainer" role="banner">
+		<header class="navbar navbar-default" id="headerNavigationContainer" role="banner" style="background-image: url('{$baseUrl}/plugins/themes/bootstrap3JSS/images/header-background.png');">
 
 			{* User profile, login, etc, navigation menu*}
 			<div class="container">

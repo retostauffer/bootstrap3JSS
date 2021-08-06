@@ -10,12 +10,18 @@
  * @uses $isFullWidth bool Should this page be displayed without sidebars? This
  *       represents a page-level override, and doesn't indicate whether or not
  *       sidebars have been configured for thesite.
+ * @uses $requestedPage string Used to suppress one or another thing maybe.
  *}
 
 	</main>
 
 	{* Sidebars *}
+    {$requestedPage}
+
 	{if empty($isFullWidth)}
+		{capture assign="retoCode"}{call_hook name="Templates::Common::Reto"}{/capture}
+        {$retoCode}
+
 		{capture assign="sidebarCode"}{call_hook name="Templates::Common::Sidebar"}{/capture}
 		{if $sidebarCode}
 			<aside id="sidebar" class="pkp_structure_sidebar left col-xs-12 col-sm-2 col-md-4" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">

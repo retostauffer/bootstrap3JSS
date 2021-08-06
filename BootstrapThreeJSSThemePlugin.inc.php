@@ -15,6 +15,25 @@
 
 import('lib.pkp.classes.plugins.ThemePlugin');
 class BootstrapThreeJSSThemePlugin extends ThemePlugin {
+
+    /*
+     * @param $hookName string
+     * @param $args array [
+     *......@option array Params passed to the hook
+     *......@option Smarty
+     *......@option string The output
+     * ]
+     */
+    public function reto($hookName, $args) {
+        $params =& $args[0];
+        $smarty =& $args[1];
+        $output =& $args[2];
+
+
+        $output = "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+        return false;
+    }
+
 	/**
 	 * Initialize the theme
 	 *
@@ -24,9 +43,10 @@ class BootstrapThreeJSSThemePlugin extends ThemePlugin {
 
         # Required to be able to set variables for the templating engine
         HookRegistry::register ('TemplateManager::display', array($this, 'loadTemplateData'));
+
+        HookRegistry::register('Templates::Common::Reto', [$this, 'reto']);
+
     
-
-
         $this->setParent('bootstrapthreethemeplugin');
 		// Register option for bootstrap themes
 		$this->removeOption('bootstrapTheme', 'FieldOptions');

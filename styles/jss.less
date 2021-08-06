@@ -1,5 +1,10 @@
 
 
+@import (inline) "google_font.css";
+
+* { 
+    font-family: 'Barlow', sans-serif;
+}
 
 // Change the default color
 @primary: #ff0033;
@@ -83,6 +88,18 @@
 @navbar-default-toggle-icon-bar-bg:        white;
 @navbar-default-toggle-border-color:       #ddd;
 
+
+// Align left and right hand side of the page
+.pkp_structure_main, .pkp_structure_sidebar {
+    margin: 2em 0;
+    .journal-description {
+        margin-top: 0;
+    }
+}
+
+#headerNavigationContainer {
+    background-size: cover;
+}
 
 #jss-logo {
     padding: 0 3em;
