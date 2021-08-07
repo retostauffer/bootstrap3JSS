@@ -63,7 +63,7 @@
 		</span>
 	{/if}
 
-    <icon class="jss-pdf" style="background-image: url('{$baseUrl|escape}/plugins/themes/bootstrap3JSS/images/test.svg');"></icon>
+	<i class="fas fa-file-download"></i>
 	{$galley->getGalleyLabel()|escape}
 
 	{if $restricted && $purchaseFee && $purchaseCurrency}

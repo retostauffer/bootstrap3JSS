@@ -13,7 +13,7 @@
 @gray-darker:            lighten(@gray-base, 13.5%); // #222
 @gray-dark:              lighten(@gray-base, 20%);   // #333
 @gray:                   lighten(@gray-base, 33.5%); // #555
-@gray-light:             lighten(@gray-base, 46.7%); // #777
+@gray-light:             lighten(@gray-base, 70.7%); // #777
 @gray-lighter:           lighten(@gray-base, 93.5%); // #eee
 
 @navbar-default-bg: #0088b5;   // JSS blue
@@ -35,11 +35,21 @@
 
 // Remove border from blocks
 .pkp_block {
+
+    margin: 0;
+    padding: 1.5em 0;
     border: none;
+    border: 1px solid @gray-light;
+    border-top: none;
+
+    &:first-child {
+	    border-top: 1px solid @gray-light;
+    }
 
     .title {
         font-size:           1em;
         font-weight:         bold;
+	color:               @gray-light;
         border:              none;
         background-color:    transparent;
         padding:             0;
@@ -154,6 +164,11 @@ icon.jss-pdf {
 .article-details {
     .download {
         padding: 0 0 1.5em 0;
+	.btn {
+	    svg {
+                margin-right: 0.5em;
+	    }
+        }
         .btn-primary {
             display: inline;
             border: 2px solid @brand-primary;
@@ -179,7 +194,20 @@ icon.jss-pdf {
             }
         }
     }
+
+    .article-sidebar {
+	    strong {
+        	font-size:           1em;
+        	font-weight:         bold;
+		color:               @gray-light;
+        	border:              none;
+        	background-color:    transparent;
+        	padding:             0;
+        	margin:              0 0 0.5em 0;
+	}
+    }
 }
+
 .article-details {
     .download-main {
         padding-top: 5em;
@@ -276,6 +304,12 @@ icon.jss-pdf {
 }
 
 
+// ----------------- custom block jss-sponsors ------------
+.pkp_block.jss-sponsors {
+	img {
+		max-width: 100%;
+	}
+}
 
 
 

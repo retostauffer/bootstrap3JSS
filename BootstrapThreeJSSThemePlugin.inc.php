@@ -29,32 +29,39 @@ class BootstrapThreeJSSThemePlugin extends ThemePlugin {
         $smarty =& $args[1];
         $output =& $args[2];
 
+        $output  = "";
+        $output .= "<div class=\"pkp_block\">\n";
+        $output .= "  <h2 class=\"title\">Just a test</h2>";
+        $output .= "  <div class=\"content\">\n";
+        $output .= "    This content is created by a php function registered via hook ('reto').";
+        $output .= "  </div>\n";
+        $output .= "</div>";
 
-        $output = "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
         return false;
     }
 
-	/**
-	 * Initialize the theme
-	 *
-	 * @return null
-	 */
-	public function init() {
+        /**
+         * Initialize the theme
+         *
+         * @return null
+         */
+        public function init() {
 
         # Required to be able to set variables for the templating engine
         HookRegistry::register ('TemplateManager::display', array($this, 'loadTemplateData'));
 
         HookRegistry::register('Templates::Common::Reto', [$this, 'reto']);
 
-    
         $this->setParent('bootstrapthreethemeplugin');
-		// Register option for bootstrap themes
-		$this->removeOption('bootstrapTheme', 'FieldOptions');
-		#$this->addStyle('stylesheet', 'styles/jss-variables.less');
-		$this->modifyStyle('bootstrap', array('addLess' => array('styles/jss.less')));
-		#$this->addStyle('stylesheet', 'styles/jss.less');
-		
-		$this->addMenuArea(array("footerMenu"));
+
+        // Register option for bootstrap themes
+        $this->removeOption('bootstrapTheme', 'FieldOptions');
+        $this->modifyStyle('bootstrap',
+                            array('addLess' => array('styles/jss.less', 'fontawesome/less/fontawesome.less')));
+
+        $this->addScript('fontawesome', 'fontawesome/js/all.min.js');
+
+        $this->addMenuArea(array("footerMenu"));
 
         $this->addOption("jss_publisher_top", "FieldOptions", [
                 "type" => "radio",
@@ -92,7 +99,7 @@ class BootstrapThreeJSSThemePlugin extends ThemePlugin {
 
 
 
-	}
+        }
 
     public function loadTemplateData($hookName, $args) {
         $templateMgr = $args[0];
@@ -117,19 +124,19 @@ class BootstrapThreeJSSThemePlugin extends ThemePlugin {
         }
     }
 
-	/**
-	 * Get the display name of this plugin
-	 * @return string
-	 */
-	function getDisplayName() {
-		return "Bootstrap 3 for JSS";
-	}
+        /**
+         * Get the display name of this plugin
+         * @return string
+         */
+        function getDisplayName() {
+                return "Bootstrap 3 for JSS";
+        }
 
-	/**
-	 * Get the description of this plugin
-	 * @return string
-	 */
-	function getDescription() {
-		return "Bootstrap 3 for JSS";
-	}
+        /**
+         * Get the description of this plugin
+         * @return string
+         */
+        function getDescription() {
+                return "Bootstrap 3 for JSS";
+        }
 }
