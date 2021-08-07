@@ -20,6 +20,8 @@
         $requestedPage: {$requestedPage}
 	-->
 
+	<div class="sidebar-separator visible-xs visible-sm"></div>
+
         {if empty($isFullWidth)}
                 {capture assign="retoCode"}{call_hook name="Templates::Common::Reto"}{/capture}
 

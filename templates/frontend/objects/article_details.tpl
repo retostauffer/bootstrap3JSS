@@ -281,20 +281,33 @@
 
                         {* Article Galleys *}
                         {if $primaryGalleys || $supplementaryGalleys}
-                                <div class="download download-main">
+                                <div class="download download-main hidden-xs hidden-sm">
                                         {if $primaryGalleys}
                                                 {foreach from=$primaryGalleys item=galley}
                                                         {include file="frontend/objects/galley_main_link.tpl" parent=$article purchaseFee=$currentJournal->getSetting('purchaseArticleFee') purchaseCurrency=$currentJournal->getSetting('currency')}
                                                 {/foreach}
                                         {/if}
-                </div>
-                                <div class="download download-supplements">
+				</div>
+                                <div class="download download-supplements hidden-xs hidden-sm">
                                         {if $supplementaryGalleys}
                                                 {foreach from=$supplementaryGalleys item=galley}
                                                         {include file="frontend/objects/galley_supplement_link.tpl" parent=$article isSupplementary="1"}
                                                 {/foreach}
                                         {/if}
                                 </div>
+                                <div class="download download-xs visible-xs visible-sm pkp_block">
+					<h2 class="title">{translate|escape key="plugins.themes.bootstrap3JSS.articlefiles"}</h2>
+                                        {if $primaryGalleys}
+                                                {foreach from=$primaryGalleys item=galley}
+                                                        {include file="frontend/objects/galley_main_link.tpl" parent=$article purchaseFee=$currentJournal->getSetting('purchaseArticleFee') purchaseCurrency=$currentJournal->getSetting('currency')}
+                                                {/foreach}
+                                        {/if}
+                                        {if $supplementaryGalleys}
+                                                {foreach from=$supplementaryGalleys item=galley}
+                                                        {include file="frontend/objects/galley_supplement_link.tpl" parent=$article isSupplementary="1"}
+                                                {/foreach}
+                                        {/if}
+				</div>
                         {/if}
 
                         <div class="list-group">

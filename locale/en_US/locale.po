@@ -25,3 +25,6 @@ msgstr "License Information"
 
 msgid "plugins.themes.bootstrap3JSS.footermenutitle"
 msgstr "Footer Menu Dingens"
+					
+msgid "plugins.themes.bootstrap3JSS.articlefiles"
+msgstr "Article Files"
