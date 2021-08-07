@@ -63,17 +63,17 @@
                                 <h2 class="title">{translate|escape key="plugins.themes.bootstrap3JSS.sponsors"}</h2>
                                     <div class="content">
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-xs-4">
                                                 <a href="https://uibk.ac.at/", target="_new">
                                                 <img src="{$baseUrl}/plugins/themes/bootstrap3JSS/images/logos/uibk.png" />
                                                 </a>
                                         </div>  
-                                        <div class="col-md-4">
+                                        <div class="col-xs-4">
                                                 <a href="https://www.uzh.ch/", target="_new">
                                                         <img src="{$baseUrl}/plugins/themes/bootstrap3JSS/images/logos/uzh.png" />
                                                 </a>
                                         </div>  
-                                        <div class="col-md-4">
+                                        <div class="col-xs-4">
                                                 <a href="https://ucla.edu/", target="_new">
                                                         <img src="{$baseUrl}/plugins/themes/bootstrap3JSS/images/logos/ucla.png" />
                                                 </a>
@@ -126,16 +126,17 @@
                 <div class="container">
 
                         <div class="row">
-                                <div class="col-md-5">
+                                <div class="col-sm-12 col-md-5">
                                         {$pageFooter}
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-sm-12 col-md-3">
+					<strong>{translate|escape key="plugins.themes.bootstrap3JSS.footermenutitle"}</strong>
                                         {capture assign="footerMenu"}
                                                 {load_menu name = "footerMenu"}
                                         {/capture}
                                         {$footerMenu}
                                 </div>
-                                <div class="col-md-1" role="complementary">
+                                <div class="col-md-2 hidden-xs hidden-sm" role="complementary">
                                         <a href="{url page="about" op="aboutThisPublishingSystem"}">
                                                 <img class="img-responsive" alt="{translate key="about.aboutThisPublishingSystem"}" src="{$baseUrl}/{$brandImage}">
                                         </a>

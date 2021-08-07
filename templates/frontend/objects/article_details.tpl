@@ -385,7 +385,13 @@
                                             <span class="value">
                                                 {assign var=kw value=$keywords[$currentLocale]}
                                                 {foreach from=$kw item=keyword name=keyword}
+<!--
                                                     {$keyword|escape}{if !$smarty.foreach.keyword.last}, {/if}
+-->
+							<form class="keyword-search" action="{$baseUrl}/search" method="post">
+								<input type="hidden" name="query" id="query" value="{$keyword|escape}">
+								<button>{$keyword|escape}</button>
+							</form>
                                                 {/foreach}
                                             </span>
                                         </div>

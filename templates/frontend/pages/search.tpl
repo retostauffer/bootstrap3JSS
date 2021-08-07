@@ -86,18 +86,10 @@
 			<h2>
 				{translate key="search.searchResults"}
 			</h2>
-			{foreach from=$results item=result}
-				{if !$result.publishedSubmission}
-					{foreach from=$result item=res}
-						{if !$res.publishedSubmission}
-							{continue}
-						{/if}
-						{include file="frontend/objects/article_summary.tpl" article=$res.publishedSubmission journal=$res.journal showDatePublished=true hideGalleys=true}
-					{/foreach}
-				{else}
-					{include file="frontend/objects/article_summary.tpl" article=$result.publishedSubmission journal=$result.journal showDatePublished=true hideGalleys=true}
-				{/if}
-			{/foreach}
+                	{iterate from=results item=result}
+                		{include file="frontend/objects/article_summary.tpl" article=$result.publishedSubmission journal=$result.journal showDatePublished=true hideGalleys=true heading="h3"}
+                	{/iterate}
+
 
 		</div>
 

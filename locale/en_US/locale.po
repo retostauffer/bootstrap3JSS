@@ -19,3 +19,6 @@ msgstr "Journal Information"
 
 msgid "plugins.themes.bootstrap3JSS.license"
 msgstr "License Information"
+
+msgid "plugins.themes.bootstrap3JSS.footermenutitle"
+msgstr "Footer Menu Dingens"

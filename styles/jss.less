@@ -125,7 +125,7 @@ a {
 // Special block used in 'main content'; overwrites
 // padding from .pkp_block default class.
 .pkp_block_main {
-	padding: 2em 0 0 0;
+	padding: 1.5em 0;
 }
 
 .block_web_feed {
@@ -174,10 +174,11 @@ a {
 }
 
 
-header.navbar-default {
+.navbar-default {
 	margin-bottom: 0;
+
 	#jss-logo {
-	    padding: 0 3em;
+	    padding: 0 15px;
 	
 	    a.navbar-brand {
 	        display: none;
@@ -195,6 +196,11 @@ header.navbar-default {
 	    }
 	
 	}
+
+	.navbar-collapse {
+		padding: 0;
+	}
+
 	.search-link {
 		a {
 			display: inline-block;
@@ -224,26 +230,6 @@ header.navbar-default {
 }
 
 
-/////// ---------- article styling -----------------------------
-/////article.article-details {
-/////    header {
-/////        h1 {
-/////            color: @brand-primary;
-/////        }
-/////    }
-/////}
-
-icon.jss-pdf {
-    display: inline-block;
-    position: relative;
-    top: 0.15em;
-    left: -0.2em;
-    width: 1em;
-    height: 1em;
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
-
 .article-details {
 	.download {
 		.btn {
@@ -251,45 +237,74 @@ icon.jss-pdf {
 			text-align: left;
 		}
 	}
-}
 
-.article-details {
-    .download {
-        padding: 0 0 1.5em 0;
-    }
+	form.keyword-search {
+		display: inline-block;
+		padding: 0.25em 0.25em 0 0;
+		button {
+			border-radius: 0.2em;
+			border: none;
+			background-color: @gray-lighter;
+			color: @brand-primary;
+			cursor: pointer;
 
-    .article-sidebar {
-	    strong {
-        	font-size:           1em;
-        	font-weight:         bold;
-		color:               @gray-light;
-        	border:              none;
-        	background-color:    transparent;
-        	padding:             0;
-        	margin:              0 0 0.5em 0;
+			&:hover {
+				color: @brand-secondary;
+				text-decoration: underline;
+			}
+		}
+		clear: both;
 	}
-    }
+
 }
 
 .article-details {
-    .download-main {
-        padding-top: 5em;
-    }
-}
+	.download {
+		padding: 0 0 1.5em 0;
+	}
+	
+	.article-sidebar {
+		strong {
+			font-size:           1em;
+			font-weight:         bold;
+			color:               @gray-light;
+			border:              none;
+			background-color:    transparent;
+			padding:             0;
+			margin:              0 0 0.5em 0;
+		}
+	}
+	
+	.date-published, .issue, .section, .doi, .keywords {
+		border: none;
+		padding: 0;
+	}
 
-.article-details {
-    .date-published, .issue, .section, .doi, .keywords {
-        border: none;
-        padding: 0;
-    }
-}
-
-.article-details {
 	.list-group {
 		.list-group-item {
 			padding-bottom: 1.5em;
 		}
 	}
+
+	.galley-link.btn-default  {
+		background-color: none;
+		border: none !important;
+		padding-bottom: 0;
+		padding-top: 0;
+		margin-bottom: 0;
+		margin-top: 0;
+		&:hover {
+			background-color: none;
+			color: @brand-secondary;
+		}
+	}
+	.download-main {
+		padding: 4em 0 0.5em 0;
+	}
+	.download-supplements {
+		padding: 0 0 1.5em 0;
+	}
+
 }
 
 // ---------- styling the toc on the index ----------------
@@ -307,23 +322,26 @@ icon.jss-pdf {
 	}
 }
 .article-summary {
-    .galley-link.btn {
-        	display: inline-block;
-        	margin-right: .5em;
-    }
-}
-.article-summary {
 	h3 {
 		font-weight: bold;
 	}
+
+	.galley-link.btn {
+		display: inline-block;
+		margin-right: .5em;
+	}
+
 	.btn-group {
 		padding: 1em 0;
 	}
+
 	.pages {
 		color: @gray-light;
 		text-align: right;
 	}
 }
+
+
 
 // ---------- custom header block publisher ---------------
 #jss-publisher {
@@ -353,7 +371,7 @@ icon.jss-pdf {
 #jss-announcement-list {
     ul {
         list-style: none;
-        padding: 0 15px;
+        padding: 0;
 
         li {
             padding: 0;
