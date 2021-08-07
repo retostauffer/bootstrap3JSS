@@ -52,6 +52,7 @@
 
 				{* Page numbers for this article *}
 				{if $article->getPages()}
+					Pages:
 					{$article->getPages()|escape}
 				{/if}
 			</div>

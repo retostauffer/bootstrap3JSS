@@ -181,7 +181,7 @@ a {
 	    padding: 0 15px;
 	
 	    a.navbar-brand {
-	        display: none;
+	        display: block;
 	        width: 80%;
 	        height: 5em;
 	
@@ -189,8 +189,8 @@ a {
 	            max-width: 100%;
 	        }
 	
-	        @media (min-width: @screen-sm-min) {
-	            display: block;
+	        @media (max-width: @screen-sm-min) {
+			width: 70%;
 	        }
 	
 	    }
@@ -396,13 +396,34 @@ a {
 
 
 // ----------------- custom block jss-sponsors ------------
-.pkp_block.jss-sponsors {
+.pkp_block.jss-sponsors, {
 	img {
 		max-width: 100%;
 	}
 }
+.pkp_block.jss-foas {
+	.logo-foas {
+		width: 45%;
+		min-width: 100px;
+		padding-right: 5%;
+		padding-bottom: 0.5em;
+	
+		img {
+			width: 100%;
+		}
+	
+	}
 
+	strong {
+		color: black;
+	}
 
+	&:hover {
+		strong {
+			color: @brand-secondary;
+		}
+	}
+}
 
 
 // ---------------- define button styles ------------------

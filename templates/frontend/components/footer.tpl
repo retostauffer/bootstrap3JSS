@@ -64,17 +64,17 @@
                                     <div class="content">
                                     <div class="row">
                                         <div class="col-xs-4">
-                                                <a href="https://uibk.ac.at/", target="_new">
+                                                <a class="image-link" href="https://uibk.ac.at/", target="_new">
                                                 <img src="{$baseUrl}/plugins/themes/bootstrap3JSS/images/logos/uibk.png" />
                                                 </a>
                                         </div>  
                                         <div class="col-xs-4">
-                                                <a href="https://www.uzh.ch/", target="_new">
+                                                <a class="image-link" href="https://www.uzh.ch/", target="_new">
                                                         <img src="{$baseUrl}/plugins/themes/bootstrap3JSS/images/logos/uzh.png" />
                                                 </a>
                                         </div>  
                                         <div class="col-xs-4">
-                                                <a href="https://ucla.edu/", target="_new">
+                                                <a class="image-link" href="https://ucla.edu/", target="_new">
                                                         <img src="{$baseUrl}/plugins/themes/bootstrap3JSS/images/logos/ucla.png" />
                                                 </a>
                                         </div>  
@@ -82,7 +82,18 @@
                                     </div> <!-- end .row -->
                                 </div> <!-- end .content -->
                             </div>
-                            <!-- end of custom block with sponsors -->
+                            <!-- end of custom block with foas -->
+
+                            <!-- custom block with foas information -->
+				<div class="pkp_block jss-foas">
+					<h2 class="title">{translate|escape key="plugins.themes.bootstrap3JSS.foas"}</h2>
+					<div class="content text-justify">
+						<div class="logo-foas pull-left"><img src="{$baseUrl}/plugins/themes/bootstrap3JSS/images/logos/foas.png" /></div>
+						As a matter of principle, <strong>JSS charges no author fees or subscription fees</strong>. Our editors, reviewers, and programmers are volunteers. UCLA Statistics and Universität Innsbruck contribute support staff, website maintenance, website hosting, and some graduate student support. Because of our success and growth we do need more resources in the future. You can support us by becoming a member of the <a href="http://www.foastat.org/" target="_new">Foundation for Open Access Statistics</a> at <a href="http://www.foastat.org/" target="_new">www.foastat.org</a>, and by contributing on their <a href="https://www.foastat.org/donate.html" target="_new">donation page</a>.
+					</div>
+				</div>
+                            <!-- end of custom block with foas -->
+
 
                         {/if}
                         {* END OF ONLY SHOW IF VIEW IS NOT TYPE ARTICLE *}
