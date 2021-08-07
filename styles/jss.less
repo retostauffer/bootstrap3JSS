@@ -47,41 +47,90 @@ a {
     }
 }
 
+a.btn {
+	border-radius: 0.2em;
+}
+
+
 
 // Remove border from blocks
 .pkp_block {
 
-    margin: 0;
-    padding: 1.5em 0;
-    border: none;
-    border: 1px solid @gray-light;
-    border-top: none;
+	// Remove color from lists (default)
+	ul {
+		li {
+			background-color: transparent;
+		}
+	}
 
-    &:first-child {
-	    border-top: 1px solid @gray-light;
-    }
+	margin: 0;
+	padding: 0 0 1.5em 0;
+	border: none;
+	//border-bottom: 1px solid @gray-light;
+	//border-top: none;
+	//&:first-child {
+	//	border-top: 1px solid @gray-light;
+	//}
 
-    .title {
-        font-size:           1em;
-        font-weight:         bold;
-	color:               @gray-light;
-        border:              none;
-        background-color:    transparent;
-        padding:             0;
-        margin:              0 15px 10px 15px;
-    }
+	// Animation for .title underline when hovering block
+	&:hover {
+		h2 {
+			color: @brand-primary;
+			-webkit-transition: color 300ms linear;
+    			-moz-transition: color 300ms linear;
+    			-o-transition: color 300ms linear;
+    			-ms-transition: color 300ms linear;
+                	transition: color 300ms linear;
+		}
+		.title {
+			&::after {
+				overflow: hidden;
+				opacity: 1;
+				transform: translate3d(0, 0, 0);
+			}
+		}
+	}
+	
 
-    // Content lists
-    div.content {
-        padding: 0 15px;
+	.title {
+		display:             block;
+		position:            relative;
+		padding:             0.2em 0;
+		font-size:           1em;
+		font-weight:         bold;
+		color:               @gray-light;
+		border:              none;
+		background-color:    transparent;
+		margin:              0 15px 10px 15px;
+		overflow: hidden;
 
-        ul {
-            li {
-                padding: 0;
-                border: none;
-            }
-        }
-    }
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 0.1em;
+			background-color: @brand-primary;
+			//background-color: @brand-secondary;
+			opacity: 0;
+			overflow: hidden;
+			transition: opacity 300ms, transform 300ms;
+			transform: translate3d(-100%, 0, 0);
+		}
+	}
+	
+	// Content lists
+	div.content {
+		padding: 0 15px;
+		
+		ul {
+			li {
+				padding: 0;
+				border: none;
+			}
+		}
+	}
 }
 
 .block_web_feed {
@@ -116,34 +165,41 @@ a {
 
 // Align left and right hand side of the page
 .pkp_structure_main, .pkp_structure_sidebar {
-    margin: 2em 0;
-    .journal-description {
-        margin-top: 0;
-    }
+	padding: 1.5em 0;
+	.journal-description {
+		margin-top: 0;
+	}
+}
+.pkp_structure_sidebar {
+	padding-left: 1em;
 }
 
 #headerNavigationContainer {
     background-size: cover;
 }
 
-#jss-logo {
-    padding: 0 3em;
 
-    a.navbar-brand {
-        display: none;
-        width: 80%;
-        height: 5em;
-
-        img {
-            max-width: 100%;
-        }
-
-        @media (min-width: @screen-sm-min) {
-            display: block;
-        }
-
-    }
-
+header.navbar-default {
+	margin-bottom: 0;
+	#jss-logo {
+	    padding: 0 3em;
+	
+	    a.navbar-brand {
+	        display: none;
+	        width: 80%;
+	        height: 5em;
+	
+	        img {
+	            max-width: 100%;
+	        }
+	
+	        @media (min-width: @screen-sm-min) {
+	            display: block;
+	        }
+	
+	    }
+	
+	}
 }
 
 // ---------- adjusting breadcrump style ------------------
@@ -193,7 +249,13 @@ icon.jss-pdf {
 
             &:hover {
                 background-color: @brand-secondary;
-                color: white;
+		color: @brand-primary;
+		-webkit-transition: background-color 300ms linear;
+    		-moz-transition: background-color 300ms linear;
+    		-o-transition: background-color 300ms linear;
+    		-ms-transition: background-color 300ms linear;
+                transition: background-color 300ms linear;
+		color: white;
             }
         }
         .btn-default {
@@ -237,11 +299,11 @@ icon.jss-pdf {
 }
 
 .article-details {
-    .list-group {
-        .list-group-item {
-            padding-bottom: 1.5em;
-        }
-    }
+	.list-group {
+		.list-group-item {
+			padding-bottom: 1.5em;
+		}
+	}
 }
 
 // ---------- styling the toc on the index ----------------
@@ -250,6 +312,12 @@ icon.jss-pdf {
 		border: none;
 		padding-bottom: 0;
 		margin-bottom: 0.3em;
+	}
+	.published {
+		color: @gray-light;
+		svg {
+			margin: 0 0.5em;
+		}
 	}
 }
 .article-summary {
@@ -262,8 +330,19 @@ icon.jss-pdf {
         background-color: transparent;
 
         &:hover {
-            background-color: @brand-secondary;
-            color: white;
+            	color: white;
+		-webkit-transition: color 300ms linear;
+    		-moz-transition: color 300ms linear;
+    		-o-transition: color 300ms linear;
+    		-ms-transition: color 300ms linear;
+                transition: color 300ms linear;
+
+            	background-color: @brand-secondary;
+		-webkit-transition: background-color 300ms linear;
+    		-moz-transition: background-color 300ms linear;
+    		-o-transition: background-color 300ms linear;
+    		-ms-transition: background-color 300ms linear;
+                transition: background-color 300ms linear;
         }
     }
 }

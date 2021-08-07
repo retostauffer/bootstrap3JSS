@@ -74,6 +74,7 @@
 					<strong>
 						{translate key="submissions.published"}:
 					</strong>
+					<i class="far fa-calendar-alt"></i>
 					{$issue->getDatePublished()|escape|date_format:$dateFormatShort}
 				</p>
 			{/if}

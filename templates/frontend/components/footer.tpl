@@ -27,9 +27,7 @@
                 {if $sidebarCode}
                         <aside id="sidebar" class="pkp_structure_sidebar left col-xs-12 col-sm-2 col-md-4" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
 
-                        {$retoCode}
-
-                        {if $jssPublisherTop != "1"}
+                        {if $jssPublisherTop != "1" && $requestedPage != "article"}
                             <div class="pkp_block" id="jss-publisher-list">
                                 <h2 class="title pkp_screen_reader">{translate|escape key="plugins.themes.bootstrap3JSS.journalinformation"}</h2>
                                 <h2 class="title">{translate|escape key="plugins.themes.bootstrap3JSS.journalinformation"}</h2>
@@ -41,6 +39,8 @@
                                 </div>
                             </div>
                         {/if}
+
+                        {$retoCode}
 
                         {$sidebarCode}
 
