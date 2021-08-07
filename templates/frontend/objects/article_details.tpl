@@ -91,7 +91,7 @@
 
                                 {* How to cite adjusted *}
                                 {if $citation}
-                                        <div class="pkp_block pkp_block_main">
+                                        <div class="pkp_block pkp_block_main how-to-cite">
                                                 <h2 class="title">
                                                         {translate key="submission.howToCite"}
                                                 </h2>

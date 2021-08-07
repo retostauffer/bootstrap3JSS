@@ -87,6 +87,35 @@
                         {/if}
                         {* END OF ONLY SHOW IF VIEW IS NOT TYPE ARTICLE *}
 
+
+                        {* CUSTOM BLOCKS ONLY SHOWN IF NOT ARTICLE VIEW *}
+                        {if $requestedPage == "article" && ($licenseTerms || $licenseUrl)}
+                            <div class="pkp_block copyright">
+                                <h2 class="title">{translate|escape key="plugins.themes.bootstrap3JSS.license"}</h2>
+				
+                                <div class="content">
+<i class="fab fa-2x fa-creative-commons"></i>
+<i class="fab fa-2x fa-creative-commons-by"></i><br />
+
+                                    {if $licenseUrl}
+                                        {if $ccLicenseBadge}
+                                            {$ccLicenseBadge}
+                                        {else}
+                                            <a href="{$licenseUrl|escape}" class="copyright">
+                                                {if $copyrightHolder}
+                                                    {translate key="submission.copyrightStatement" copyrightHolder=$copyrightHolder copyrightYear=$copyrightYear}
+                                                {else}
+                                                    {translate key="submission.license"}
+                                                {/if}
+                                            </a>
+                                        {/if}
+                                    {/if}
+                                    {$licenseTerms}
+                                </div>
+                            </div>
+                        {/if}
+                        {* END OF ONLY SHOW IF VIEW IS AN ARTICLE *}
+
                         </aside><!-- pkp_sidebar.left -->
                 {/if}
         {/if}

@@ -16,3 +16,6 @@ msgstr "Sponsored by"
 
 msgid "plugins.themes.bootstrap3JSS.journalinformation"
 msgstr "Journal Information"
+
+msgid "plugins.themes.bootstrap3JSS.license"
+msgstr "License Information"
