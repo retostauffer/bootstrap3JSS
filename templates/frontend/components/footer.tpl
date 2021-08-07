@@ -20,14 +20,15 @@
         $requestedPage: {$requestedPage}
 	-->
 
-	<div class="sidebar-separator visible-xs visible-sm"></div>
-
         {if empty($isFullWidth)}
                 {capture assign="retoCode"}{call_hook name="Templates::Common::Reto"}{/capture}
 
                 {capture assign="sidebarCode"}{call_hook name="Templates::Common::Sidebar"}{/capture}
                 {if $sidebarCode}
+
                         <aside id="sidebar" class="pkp_structure_sidebar left col-sm-12 col-md-4" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
+
+			<div class="sidebar-separator hidden-md hidden-lg"></div>
 
                         {if $jssPublisherTop != "1" && $requestedPage != "article"}
                             <div class="pkp_block" id="jss-publisher-list">
