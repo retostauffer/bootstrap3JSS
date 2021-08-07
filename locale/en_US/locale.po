@@ -13,3 +13,6 @@ msgstr ""
 
 msgid "plugins.themes.bootstrap3JSS.sponsors"
 msgstr "Sponsored by"
+
+msgid "plugins.themes.bootstrap3JSS.journalinformation"
+msgstr "Journal Information"

@@ -13,9 +13,6 @@
 	<li>
 		<a href="{url router=$smarty.const.ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
 			{$announcement->getLocalizedTitle()|escape}
-		</a>
-		<span class="date">
-			<span class="glyphicon glyphicon-calendar"></span><br />
-			{$announcement->getDatePosted()|escape}
-		</span>
+		</a><br />
+		<i class="far fa-calendar-alt"></i>{$announcement->getDatePosted()|escape}
 	</li>

@@ -29,6 +29,19 @@
 
                         {$retoCode}
 
+                        {if $jssPublisherTop != "1"}
+                            <div class="pkp_block" id="jss-publisher-list">
+                                <h2 class="title pkp_screen_reader">{translate|escape key="plugins.themes.bootstrap3JSS.journalinformation"}</h2>
+                                <h2 class="title">{translate|escape key="plugins.themes.bootstrap3JSS.journalinformation"}</h2>
+                                <div class="content">
+                                    {$jssPublishedBy}<br />
+                                    <strong>Editors-in-chief:</strong>{$jssEditorsInChief}<br />
+                                    <strong>ISSN:</strong> {$jssISSN}<br />
+                                    <strong>CODEN:</strong> {$jssCoden}
+                                </div>
+                            </div>
+                        {/if}
+
                         {$sidebarCode}
 
                         {* CUSTOM BLOCKS ONLY SHOWN IF NOT ARTICLE VIEW *}

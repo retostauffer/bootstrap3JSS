@@ -20,8 +20,10 @@
 
 
 @brand-primary:         #0088b5; // JSS blue
-////@brand-secondary:       #00CA44; // JSS green
-@brand-secondary:       #eb8634; // JSS orange
+//@brand-secondary:       #aee92c; // JSS green (test)
+//@brand-secondary:       #f9b40c; // JSS orange (test)
+@brand-secondary:       #e92c90; // JSS pink (test)
+//@brand-secondary:       #2c94e9; // JSS blue (test)
 @brand-success:         #5cb85c;
 @brand-info:            #5bc0de;
 @brand-warning:         #f0ad4e;
@@ -31,6 +33,19 @@
 @border-radius-base:  0;
 @border-radius-large: 0;
 @border-radius-small: 0;
+
+// Spacing around images in 'additonal  content'
+.additional_content {
+	img {
+		padding: 0 0 1em 1em;
+	}
+}
+
+a {
+    &:hover {
+        color: @brand-secondary;
+    }
+}
 
 
 // Remove border from blocks
@@ -296,11 +311,24 @@ icon.jss-pdf {
         padding: 0 15px;
 
         li {
-            padding: 0 !important;
-            margin: 0 !important;
-            border: none !important;
+            padding: 0;
+            margin: 0;
+            border: none;
+	    color: @gray-light;
+	    
+	    a {
+		    color: @brand-primary;
+		    &:hover {
+			    color: @brand-secondary;
+		    }
+
+	    }
+	    svg {
+		    margin-right: 1em;
+	    }
         }
     }
+
 }
 
 
