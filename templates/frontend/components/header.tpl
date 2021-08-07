@@ -114,9 +114,14 @@
 
                                                 {* Search form *}
                                                 {if $currentContext}
+							<div class="pull-md-right search-link">
+								<a href="{$baseUrl}/search" target="_self"><i class="fas fa-search"></i>Search</a>
+							</div>
+<!--
                                                         <div class="pull-md-right">
                                                                 {include file="frontend/components/searchForm_simple.tpl"}
                                                         </div>
+-->
                                                 {/if}
                                         </nav>
                                 {/if}
@@ -126,4 +131,4 @@
 
                 {* Wrapper for page content and sidebars *}
                 <div class="pkp_structure_content container">
-                        <main class="pkp_structure_main col-xs-12 col-sm-10 col-md-8" role="main">
+                        <main class="pkp_structure_main col-sm-12 col-md-8" role="main">

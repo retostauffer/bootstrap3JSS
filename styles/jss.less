@@ -47,14 +47,25 @@ a {
     }
 }
 
-a.btn {
-	border-radius: 0.2em;
-}
-
-
 
 // Remove border from blocks
 .pkp_block {
+
+	margin: 0;
+	padding: 0 0 1.5em 1em;
+	border: none;
+	
+	// Content lists
+	.content {
+		padding: 0;
+		
+		ul {
+			li {
+				padding: 0;
+				border: none;
+			}
+		}
+	}
 
 	// Remove color from lists (default)
 	ul {
@@ -62,15 +73,6 @@ a.btn {
 			background-color: transparent;
 		}
 	}
-
-	margin: 0;
-	padding: 0 0 1.5em 0;
-	border: none;
-	//border-bottom: 1px solid @gray-light;
-	//border-top: none;
-	//&:first-child {
-	//	border-top: 1px solid @gray-light;
-	//}
 
 	// Animation for .title underline when hovering block
 	&:hover {
@@ -101,7 +103,7 @@ a.btn {
 		color:               @gray-light;
 		border:              none;
 		background-color:    transparent;
-		margin:              0 15px 10px 15px;
+		margin:              0 0px 10px 0px;
 		overflow: hidden;
 
 		&::after {
@@ -119,18 +121,11 @@ a.btn {
 			transform: translate3d(-100%, 0, 0);
 		}
 	}
-	
-	// Content lists
-	div.content {
-		padding: 0 15px;
-		
-		ul {
-			li {
-				padding: 0;
-				border: none;
-			}
-		}
-	}
+}
+// Special block used in 'main content'; overwrites
+// padding from .pkp_block default class.
+.pkp_block_main {
+	padding: 2em 0 0 0;
 }
 
 .block_web_feed {
@@ -200,8 +195,25 @@ header.navbar-default {
 	    }
 	
 	}
-}
+	.search-link {
+		a {
+			display: inline-block;
+			padding: 15px;
+			color: white;
+			svg {
+				margin-right: 0.5em;
+			}
+		}
+		&:hover {
+			background-color: @brand-secondary;
+			svg, a {
+				color: black;
+				text-decoration: none;
+			}
+		}
+	}
 
+}
 // ---------- adjusting breadcrump style ------------------
 
 .cmp_breadcrumbs {
@@ -233,43 +245,17 @@ icon.jss-pdf {
 }
 
 .article-details {
+	.download {
+		.btn {
+			display: inline-block;
+			text-align: left;
+		}
+	}
+}
+
+.article-details {
     .download {
         padding: 0 0 1.5em 0;
-	.btn {
-	    svg {
-                margin-right: 0.5em;
-	    }
-        }
-        .btn-primary {
-            display: inline;
-            border: 2px solid @brand-primary;
-            color: @brand-primary;
-            border-radius: .2em;
-            background-color: transparent;
-
-            &:hover {
-                background-color: @brand-secondary;
-		color: @brand-primary;
-		-webkit-transition: background-color 300ms linear;
-    		-moz-transition: background-color 300ms linear;
-    		-o-transition: background-color 300ms linear;
-    		-ms-transition: background-color 300ms linear;
-                transition: background-color 300ms linear;
-		color: white;
-            }
-        }
-        .btn-default {
-            display: inline;
-            border: none;
-            padding: 0.25 1em;
-            margin: 0;
-            color: @brand-primary;
-
-            &:hover {
-                color: @brand-secondary;
-                background-color: transparent;
-            }
-        }
     }
 
     .article-sidebar {
@@ -322,28 +308,8 @@ icon.jss-pdf {
 }
 .article-summary {
     .galley-link.btn {
-        display: inline-block;
-        margin-right: .5em;
-        border: 2px solid @brand-primary;
-        color: @brand-primary;
-        border-radius: .2em;
-        background-color: transparent;
-
-        &:hover {
-            	color: white;
-		-webkit-transition: color 300ms linear;
-    		-moz-transition: color 300ms linear;
-    		-o-transition: color 300ms linear;
-    		-ms-transition: color 300ms linear;
-                transition: color 300ms linear;
-
-            	background-color: @brand-secondary;
-		-webkit-transition: background-color 300ms linear;
-    		-moz-transition: background-color 300ms linear;
-    		-o-transition: background-color 300ms linear;
-    		-ms-transition: background-color 300ms linear;
-                transition: background-color 300ms linear;
-        }
+        	display: inline-block;
+        	margin-right: .5em;
     }
 }
 .article-summary {
@@ -420,4 +386,35 @@ icon.jss-pdf {
 
 
 
+
+// ---------------- define button styles ------------------
+// Uses !important to overrule all other definitions with
+// more distinct paths in less/css.
+.btn  {
+    background-color: white !important;
+    border-radius: .2em !important;
+    border: 2px solid @brand-primary !important;
+    color: @brand-primary !important;
+
+    svg {
+        margin-right: 0.5em;
+    }
+
+    &:hover {
+        background-color: @brand-secondary !important;;
+	color: white !important;;
+
+	-webkit-transition: background-color 300ms linear !important;
+	-moz-transition: background-color 300ms linear !important;
+	-o-transition: background-color 300ms linear !important;
+	-ms-transition: background-color 300ms linear !important;
+        transition: background-color 1000ms linear !important;
+	
+	-webkit-transition: color 300ms linear !important;
+	-moz-transition: color 300ms linear !important;
+	-o-transition: color 300ms linear !important;
+	-ms-transition: color 300ms linear !important;
+        transition: color 300ms linear !important;
+    }
+}
 

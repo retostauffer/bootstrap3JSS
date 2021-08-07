@@ -89,13 +89,13 @@
                                 {* Screen-reader heading for easier navigation jumps *}
                                 <h2 class="sr-only">{translate key="plugins.themes.bootstrap3.article.details"}</h2>
 
-                                {* How to cite *}
+                                {* How to cite adjusted *}
                                 {if $citation}
-                                        <div class="panel panel-default how-to-cite">
-                                                <div class="panel-heading">
+                                        <div class="pkp_block pkp_block_main">
+                                                <h2 class="title">
                                                         {translate key="submission.howToCite"}
-                                                </div>
-                                                <div class="panel-body">
+                                                </h2>
+                                                <div class="content">
                                                         <div id="citationOutput" role="region" aria-live="polite">
                                                                 {$citation}
                                                         </div>
@@ -140,6 +140,7 @@
                                                 </div>
                                         </div>
                                 {/if}
+
 
                                 {* PubIds (requires plugins) *}
                                 {foreach from=$pubIdPlugins item=pubIdPlugin}
