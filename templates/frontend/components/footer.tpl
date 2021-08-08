@@ -104,27 +104,22 @@
 
                         {* CUSTOM BLOCKS ONLY SHOWN IF NOT ARTICLE VIEW *}
                         {if $requestedPage == "article" && ($licenseTerms || $licenseUrl)}
-                            <div class="pkp_block copyright">
+                            <div class="pkp_block" id="jss-copyright">
                                 <h2 class="title">{translate|escape key="plugins.themes.bootstrap3JSS.license"}</h2>
 				
                                 <div class="content">
-<i class="fab fa-2x fa-creative-commons"></i>
-<i class="fab fa-2x fa-creative-commons-by"></i><br />
+					
+					<i class="fab fa-2x fa-creative-commons"></i>
+					<i class="fab fa-2x fa-creative-commons-by"></i>
+					<img src="{$baseUrl}/plugins/themes/bootstrap3JSS/images/logos/GNU.svg">
+					<img src="{$baseUrl}/plugins/themes/bootstrap3JSS/images/logos/GPLv3.svg"><br />
+					
+					Article: <a href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution License (CC-BY)</a>
 
-                                    {if $licenseUrl}
-                                        {if $ccLicenseBadge}
-                                            {$ccLicenseBadge}
-                                        {else}
-                                            <a href="{$licenseUrl|escape}" class="copyright">
-                                                {if $copyrightHolder}
-                                                    {translate key="submission.copyrightStatement" copyrightHolder=$copyrightHolder copyrightYear=$copyrightYear}
-                                                {else}
-                                                    {translate key="submission.license"}
-                                                {/if}
-                                            </a>
-                                        {/if}
-                                    {/if}
-                                    {$licenseTerms}
+					
+
+Code: GNU General Public License <a href="http://www.gnu.org/licenses/gpl-2.0.html" target="_self">version 2</a> or <a href="http://www.gnu.org/licenses/gpl-3.0.html" target="_self">version 3</a> or a <a href="https://gnu.org/licenses/license-list.html#GPLCompatibleLicenses" target="_self">GPL-compatible license</a>.
+
                                 </div>
                             </div>
                         {/if}
@@ -150,7 +145,8 @@
                                         {/capture}
                                         {$footerMenu}
                                 </div>
-                                <div class="col-md-2 hidden-xs hidden-sm" role="complementary">
+                                <div class="col-sm-12 col-md-2 pkpinfo" role="complementary">
+
                                         <a href="{url page="about" op="aboutThisPublishingSystem"}">
                                                 <img class="img-responsive" alt="{translate key="about.aboutThisPublishingSystem"}" src="{$baseUrl}/{$brandImage}">
                                         </a>

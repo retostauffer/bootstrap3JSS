@@ -104,9 +104,7 @@
 				{if $section.articles}
 					{if $section.title}
 						<div class="page-header">
-							<h2>
-								<small>{$section.title|escape}</small>
-							</h2>
+							<h2>{$section.title|escape}</h2>
 						</div>
 					{/if}
 					<div class="media-list">

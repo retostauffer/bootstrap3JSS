@@ -28,3 +28,4 @@ msgstr "Footer Menu Dingens"
 					
 msgid "plugins.themes.bootstrap3JSS.articlefiles"
 msgstr "Article Files"
+
