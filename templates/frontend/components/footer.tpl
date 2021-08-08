@@ -20,6 +20,7 @@
         $requestedPage: {$requestedPage}
 	-->
 
+
         {if empty($isFullWidth)}
                 {capture assign="retoCode"}{call_hook name="Templates::Common::Reto"}{/capture}
 
@@ -42,6 +43,44 @@
                                 </div>
                             </div>
                         {/if}
+
+						{* --------------------- BEGIN OF ROLE DEPENDENT NAVIGATION -------------------- *} 
+						{* CHECK IF THE USER HAS ANY OF THESE RULES ASSIGNED *}
+						{if in_array(ROLE_ID_MANAGER, (array) $userRoles) || in_array(ROLE_ID_SUB_EDITOR, (array) $userRoles) || in_array(ROLE_ID_ASSISTANT, (array) $userRoles) || in_array(ROLE_ID_REVIEWER, (array) $userRoles) || in_array(ROLE_ID_AUTHOR, (array) $userRoles)}
+						
+							<div class="pkp_block">
+								<h2 class="title">
+									{translate|escape key="plugins.themes.bootstrap3JSS.rolenav"}
+								</h2>
+								<div class="content">
+									<ul>
+										{if in_array(ROLE_ID_MANAGER, (array) $userRoles)}
+											{capture assign="forManagersUrl"}{url router=$smarty.const.ROUTE_PAGE page="guides" op="manager"}{/capture}
+											<li><a href="{$forManagersUrl}" target="_self">For Managers</a></li>
+										{/if}
+										{if in_array(ROLE_ID_SUB_EDITOR, (array) $userRoles)}
+											{capture assign="forEditorsUrl"}{url router=$smarty.const.ROUTE_PAGE page="guides" op="editor"}{/capture}
+											<li><a href="{$forEditorsUrl}" target="_self">For Editors</a></li>
+										{/if}
+										{if in_array(ROLE_ID_ASSISTANT, (array) $userRoles)}
+											{capture assign="forAssistantsUrl"}{url router=$smarty.const.ROUTE_PAGE page="guides" op="assistant"}{/capture}
+											<li><a href="{$forAssistantsUrl}" target="_self">For Assistants</a></li>
+										{/if}
+										{if in_array(ROLE_ID_REVIEWER, (array) $userRoles)}
+											{capture assign="forReviewersUrl"}{url router=$smarty.const.ROUTE_PAGE page="guides" op="reviewer"}{/capture}
+											<li><a href="{$forReviewersUrl}" target="_self">For Reviewers</a></li>
+										{/if}
+										{if in_array(ROLE_ID_AUTHOR, (array) $userRoles)}
+											{capture assign="forAuthorsUrl"}{url router=$smarty.const.ROUTE_PAGE page="guides" op="authors"}{/capture}
+											<li><a href="{$forAuthorsUrl}" target="_self">For Authors</a></li>
+										{/if}
+									</ul>
+								</div>
+							</div>
+						
+						{/if}
+						{* ----------------------- END OF ROLE DEPENDENT NAVIGATION -------------------- *} 
+
 
                         {$retoCode}
 
