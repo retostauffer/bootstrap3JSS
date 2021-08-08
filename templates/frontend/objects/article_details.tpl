@@ -146,13 +146,6 @@
 						</div>
                         		{/if}
 
-						<div class="row">
-							<div class="col-xs-12 col-sm-3">
-							</div>
-							<div class="col-xs-12 col-sm-8">
-							</div>
-						</div>
-
                         	        {* Published date *}
                         	        {if $publication->getData('datePublished')}
 						<div class="row">
@@ -201,7 +194,7 @@
                         	                {/if}
                         	        {/if} <!-- end if date published -->
 
-                        	    {* Issue article appears in *}
+					{* Issue article appears in *}
 					<div class="row">
 						<div class="col-xs-12 col-sm-3">
                         	                	<strong>{translate key="issue.issue"}:</strong>

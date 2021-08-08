@@ -48,8 +48,9 @@
 		<section class="current_issue">
 			<header class="page-header">
 				<h2>
-					{translate key="journal.currentIssue"}:
-				{$issue->getIssueIdentification()|strip_unsafe_html}
+					{translate|escape key="plugins.themes.bootstrap3JSS.recentpublications"}
+					(Vol. {$issue->getVolume()})
+					
 				</h2>
 			</header>
             <!--

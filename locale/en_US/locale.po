@@ -31,3 +31,6 @@ msgstr "Files"
 
 msgid "plugins.themes.bootstrap3JSS.articlemeta"
 msgstr "Article Meta"
+
+msgid "plugins.themes.bootstrap3JSS.recentpublications"
+msgstr "Recent Publications"
