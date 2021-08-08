@@ -54,6 +54,7 @@ a {
 	margin: 0;
 	padding: 0 0 1.5em 1em;
 	border: none;
+	box-shadow: none;
 	
 	// Content lists
 	.content {
@@ -248,35 +249,11 @@ a {
 
 .article-details {
 	.download {
+		padding: 0 0 1.5em 0;
 		.btn {
 			display: inline-block;
 			text-align: left;
 		}
-	}
-
-	form.keyword-search {
-		display: inline-block;
-		padding: 0.25em 0.25em 0 0;
-		button {
-			border-radius: 0.2em;
-			border: none;
-			background-color: @gray-lighter;
-			color: @brand-primary;
-			cursor: pointer;
-
-			&:hover {
-				color: @brand-secondary;
-				text-decoration: underline;
-			}
-		}
-		clear: both;
-	}
-
-}
-
-.article-details {
-	.download {
-		padding: 0 0 1.5em 0;
 	}
 	
 	.article-sidebar {
@@ -302,25 +279,41 @@ a {
 		}
 	}
 
-        @media (min-width: @screen-md-min) {
-		.galley-link.btn-default  {
-			background-color: none;
-			border: none !important;
-			padding-bottom: 0;
-			margin-bottom: 0;
-			margin-top: 0;
-			&:hover {
-				background-color: none;
-				color: @brand-secondary;
-			}
-		}
-	}
-
 	.download-main {
 		padding: 4em 0 0.5em 0;
 	}
 	.download-supplements {
 		padding: 0 0 1.5em 0;
+	}
+
+
+	// Buttons for keywords which forward to the search form
+	form.keyword-search {
+		display: inline-block;
+		padding: 0.25em 0.25em 0 0;
+		button {
+			border-radius: 0.2em;
+			border: none;
+			background-color: @gray-lighter;
+			color: @brand-primary;
+			cursor: pointer;
+
+			&:hover {
+				color: @brand-secondary;
+				text-decoration: underline;
+			}
+		}
+		clear: both;
+	}
+
+	.article-meta {
+		div.row {
+			margin-bottom: 0.5em;
+		}
+
+		strong {
+			color: @gray-light;
+		}
 	}
 
 }

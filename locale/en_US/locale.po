@@ -27,5 +27,7 @@ msgid "plugins.themes.bootstrap3JSS.footermenutitle"
 msgstr "Footer Menu Dingens"
 					
 msgid "plugins.themes.bootstrap3JSS.articlefiles"
-msgstr "Article Files"
+msgstr "Files"
 
+msgid "plugins.themes.bootstrap3JSS.articlemeta"
+msgstr "Article Meta"
