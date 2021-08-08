@@ -237,12 +237,16 @@ a {
 	}
 
 }
-// ---------- adjusting breadcrump style ------------------
 
+// ---------- adjusting breadcrump style ------------------
 .cmp_breadcrumbs {
     ol.breadcrumb {
         background-color: transparent;
         padding-left: 0;
+
+	li.active {
+		color: @brand-secondary;
+	}
     }
 }
 
