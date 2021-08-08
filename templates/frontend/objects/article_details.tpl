@@ -194,6 +194,7 @@
                         	                {/if}
                         	        {/if} <!-- end if date published -->
 
+					<!--
 					{* Issue article appears in: we call this 'volume' at JSS *}
 					<div class="row">
 						<div class="col-xs-12 col-sm-3">
@@ -228,6 +229,7 @@
 							</div>
 						</div>
                         	        {/if}
+					-->
 
 
                         	        {* DOI (requires plugin) *}
