@@ -141,7 +141,7 @@ Code: GNU General Public License <a href="http://www.gnu.org/licenses/gpl-2.0.ht
                                 <div class="col-sm-12 col-md-3">
 					<strong>{translate|escape key="plugins.themes.bootstrap3JSS.footermenutitle"}</strong>
                                         {capture assign="footerMenu"}
-                                                {load_menu name = "footerMenu"}
+                                                {load_menu name = "footerMenu" id="jss-footer-menu" ulClass='footer-menu'}
                                         {/capture}
                                         {$footerMenu}
                                 </div>
