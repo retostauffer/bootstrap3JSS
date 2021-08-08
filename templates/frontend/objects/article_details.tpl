@@ -64,7 +64,7 @@
 
         <div class="row">
 
-                <div>
+                <div class="col-xs-12">
                         <section class="article-main">
 
                                 {* Screen-reader heading for easier navigation jumps *}
