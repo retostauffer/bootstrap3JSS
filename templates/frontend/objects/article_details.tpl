@@ -194,15 +194,26 @@
                         	                {/if}
                         	        {/if} <!-- end if date published -->
 
-					{* Issue article appears in *}
+					{* Issue article appears in: we call this 'volume' at JSS *}
 					<div class="row">
 						<div class="col-xs-12 col-sm-3">
-                        	                	<strong>{translate key="issue.issue"}:</strong>
+                        	                	<strong>{translate key="plugins.themes.bootstrap3JSS.volume"}:</strong>
 						</div>
 						<div class="col-xs-12 col-sm-8">
                         	                	<a href="{url|escape page="issue" op="view" path=$issue->getBestIssueId($currentJournal)}">
                         	                	        {$issue->getIssueIdentification()|escape}
                         	                	</a>
+						</div>
+					</div>
+
+					{* Issue. We extract this from the pub-id::publisher-id using a custom function *}
+                			{capture assign="JSSIssueNumber"}{call_hook name="Templates::Common::getJSSIssueNumber"}{/capture}
+					<div class="row">
+						<div class="col-xs-12 col-sm-3">
+                        	                	<strong>{translate key="plugins.themes.bootstrap3JSS.number"}:</strong>
+						</div>
+						<div class="col-xs-12 col-sm-8">
+                        	                        {$JSSIssueNumber}
 						</div>
 					</div>
 
@@ -349,8 +360,8 @@
                                         {/if}
                                 {/foreach}
 
-                                {* Licensing info *}
-                                {if $licenseTerms || $licenseUrl}
+                                {* Licensing info: DISABLED ("1" == "2" = false all times) *}
+                                {if "1" == "2" && ($licenseTerms || $licenseUrl)}
                                         <div class="panel panel-default copyright">
                                                 <div class="panel-body">
                                                         {if $licenseUrl}

@@ -30,15 +30,15 @@
 
 			<div class="sidebar-separator hidden-md hidden-lg"></div>
 
-                        {if $jssPublisherTop != "1" && $requestedPage != "article"}
+                        {if $requestedPage != "article"}
                             <div class="pkp_block" id="jss-publisher-list">
                                 <h2 class="title pkp_screen_reader">{translate|escape key="plugins.themes.bootstrap3JSS.journalinformation"}</h2>
                                 <h2 class="title">{translate|escape key="plugins.themes.bootstrap3JSS.journalinformation"}</h2>
                                 <div class="content">
-                                    {$jssPublishedBy}<br />
-                                    <strong>Editors-in-chief:</strong>{$jssEditorsInChief}<br />
-                                    <strong>ISSN:</strong> {$jssISSN}<br />
-                                    <strong>CODEN:</strong> {$jssCoden}
+                                    <strong>{translate|escape key="plugins.themes.bootstrap3JSS.publisher"}:</strong>{$jssPublishedBy}<br />
+                                    <strong>{translate|escape key="plugins.themes.bootstrap3JSS.editorsinchief"}:</strong>{$jssEditorsInChief}<br />
+                                    <strong>{translate|escape key="plugins.themes.bootstrap3JSS.ISSN"}:</strong>{$jssISSN}<br />
+                                    <strong>{translate|escape key="plugins.themes.bootstrap3JSS.CODEN"}:</strong>{$jssCoden}<br />
                                 </div>
                             </div>
                         {/if}

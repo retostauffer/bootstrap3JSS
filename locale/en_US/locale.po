@@ -29,8 +29,27 @@ msgstr "Footer Menu Dingens"
 msgid "plugins.themes.bootstrap3JSS.articlefiles"
 msgstr "Files"
 
+msgid "plugins.themes.bootstrap3JSS.volume"
+msgstr "Volume"
+
+msgid "plugins.themes.bootstrap3JSS.number"
+msgstr "Number"
+
 msgid "plugins.themes.bootstrap3JSS.articlemeta"
 msgstr "Article Meta"
 
 msgid "plugins.themes.bootstrap3JSS.recentpublications"
 msgstr "Recent Publications"
+
+msgid "plugins.themes.bootstrap3JSS.publisher"
+msgstr "Publisher"
+
+msgid "plugins.themes.bootstrap3JSS.editorsinchief"
+msgstr "Editors-in-chief"
+
+msgid "plugins.themes.bootstrap3JSS.ISSN"
+msgstr "ISSN"
+
+msgid "plugins.themes.bootstrap3JSS.CODEN"
+msgstr "CODEN"
+

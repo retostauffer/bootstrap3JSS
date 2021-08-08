@@ -68,8 +68,8 @@
 				{/if}
 			{/foreach}
 
-			{* Published date *}
-			{if $issue->getDatePublished()}
+			{* Published date : DISABLED ("1" == "2" = false all times)*}
+			{if "1" == "2" && $issue->getDatePublished()}
 				<p class="published">
 					<strong>
 						{translate key="submissions.published"}:

@@ -33,22 +33,6 @@
                         </ul>
                 </nav>
 
-                {if $jssPublisherTop == "1"}
-                <div class="container-fluid" id="jss-publisher">
-                    <div class="row">
-                        <div class="col-sm-7 col-md-4">
-                           <span>{$jssPublishedBy}</span>
-                        </div>
-                        <div class="col-md-5">
-                           <span>Editors-in-chief: {$jssEditorsInChief}</span>
-                        </div>
-                        <div class="col-sm-5 col-md-3 text-right">
-                            <span>ISSN {$jssISSN}; CODEN {$jssCoden}</span>
-                        </div>
-                    </div>
-                </div>
-                {/if}
-
                 {* Header *}
                 <header class="navbar navbar-default" id="headerNavigationContainer" role="banner" style="background-image: url('{$baseUrl}/plugins/themes/bootstrap3JSS/images/header-background.png');">
 

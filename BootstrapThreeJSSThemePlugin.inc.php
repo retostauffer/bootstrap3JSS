@@ -16,29 +16,62 @@
 import('lib.pkp.classes.plugins.ThemePlugin');
 class BootstrapThreeJSSThemePlugin extends ThemePlugin {
 
-    /*
-     * @param $hookName string
-     * @param $args array [
-     *......@option array Params passed to the hook
-     *......@option Smarty
-     *......@option string The output
-     * ]
-     */
-    public function reto($hookName, $args) {
-        $params =& $args[0];
-        $smarty =& $args[1];
-        $output =& $args[2];
+        /*
+         * @param $hookName string
+         * @param $args array [
+         *......@option array Params passed to the hook
+         *......@option Smarty
+         *......@option string The output
+         * ]
+         */
+        public function reto($hookName, $args) {
+            $params =& $args[0];
+            $smarty =& $args[1];
+            $output =& $args[2];
 
-        $output  = "";
-        $output .= "<div class=\"pkp_block\">\n";
-        $output .= "  <h2 class=\"title\">Just a test</h2>";
-        $output .= "  <div class=\"content\">\n";
-        $output .= "    This content is created by a php function registered via hook ('reto').";
-        $output .= "  </div>\n";
-        $output .= "</div>";
+            /////$article = $smarty->getTemplateVars('article');
 
-        return false;
-    }
+            $output  = "";
+            $output .= "<div class=\"pkp_block\">\n";
+            $output .= "  <h2 class=\"title\">Just a test</h2>";
+            $output .= "  <div class=\"content\">\n";
+            $output .= "    This content is created by a php function registered via hook ('reto').";
+            $output .= "  </div>\n";
+            $output .= "</div>";
+
+
+            return false;
+        }
+
+        /**
+         * Extracting issue number from publisher-id.
+         *
+         * In JSS we always have one issue per volume. Thus, the
+         * submission number is always 1 and does not give us what we need.
+         * Instead we register this new function/hook to be used on the frontend.
+         *
+         * Used in objects/article_details.tpl
+         */
+        public function get_jss_issue_number($hookName, $args) {
+            $params =& $args[0];
+            $smarty =& $args[1];
+            $output =& $args[2];
+
+            $article = $smarty->getTemplateVars('article');
+            $pubid   = $article->getStoredPubId("publisher-id");
+
+            // Default is "N/A"
+            $output = "N/A";
+            if (is_string($pubid)) {
+            	preg_match("/[0-9]+$/", $pubid, $res);
+            	if (is_array($res)) {
+            		$output = sprintf("%d", (int)$res[0]);
+            	}
+            }
+
+            return false;
+        }
+
 
         /**
          * Initialize the theme
@@ -51,6 +84,7 @@ class BootstrapThreeJSSThemePlugin extends ThemePlugin {
         HookRegistry::register ('TemplateManager::display', array($this, 'loadTemplateData'));
 
         HookRegistry::register('Templates::Common::Reto', [$this, 'reto']);
+        HookRegistry::register('Templates::Common::getJSSIssueNumber', [$this, 'get_jss_issue_number']);
 
         $this->setParent('bootstrapthreethemeplugin');
 
@@ -63,16 +97,16 @@ class BootstrapThreeJSSThemePlugin extends ThemePlugin {
 
         $this->addMenuArea(array("footerMenu"));
 
-        $this->addOption("jss_publisher_top", "FieldOptions", [
-                "type" => "radio",
-                "label" => "Publisher shown top of page?",
-                "description" => "Enable/disable publisher on top of page",
-                "options" => [
-                    ["value" => "1", "label" => "Yes"],
-                    ["value" => "0", "label" => "No"],
-                ],
-            ]
-        );
+        //////////$this->addOption("jss_publisher_top", "FieldOptions", [
+        //////////        "type" => "radio",
+        //////////        "label" => "Publisher shown top of page?",
+        //////////        "description" => "Enable/disable publisher on top of page",
+        //////////        "options" => [
+        //////////            ["value" => "1", "label" => "Yes"],
+        //////////            ["value" => "0", "label" => "No"],
+        //////////        ],
+        //////////    ]
+        //////////);
         $this->addOption("jss_published_by", "FieldText", [
                 "name" => "jss_published_by",
                 "label" => "Published by ...",
