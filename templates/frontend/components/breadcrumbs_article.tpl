@@ -42,7 +42,7 @@
 				{capture assign="currentTitleLen"}{$currentTitle|count_characters}{/capture}
 				{capture assign="currentTitle"}{$currentTitle|truncate:$currentTitleLen:"":true|escape}{/capture}
 
-				{if $currentTitle == "Article"}
+				{if $currentTitle == "Articles"}
 					Issue
 				{else}
 					{$currentTitle|escape}
