@@ -165,7 +165,53 @@ a {
 	.journal-description {
 		margin-top: 0;
 	}
+}
 
+// Styling figures in main text. These may - or may not - come
+// from the markdown documents we use to feed the database.
+.pkp_structure_main {
+	img {
+		border: 2px solid @gray-light;
+		max-width: 100%;
+		margin: 1.5em 0;
+
+		&:hover {
+			border-color: @brand-secondary;
+		}
+	}
+
+	// When figure has a caption it is inside a div.figure box.
+	// Adjust spacing and style caption text.
+	.figure {
+		&:hover {
+			img {
+				border-color: @brand-secondary;
+			}
+			p {
+				color: @brand-secondary;
+			}
+		}
+
+		img {
+			margin-bottom: 0;
+		}
+
+		p {
+			color: @gray-light;
+			&:before {
+				content: "Caption:"
+			}
+		}
+	}
+
+	// Not for the one image in the 'additional_content'
+	// we use on entry page
+	.additional_content {
+		img {
+			margin: 0;
+			border: 0;
+		}
+	}
 }
 
 .pkp_structure_sidebar {
@@ -237,6 +283,26 @@ a {
 	}
 
 }
+
+
+// ---------- editorial team page -------------------------
+// Styling the editorial team site we dynamically create
+.page_editorial_team {
+	img {
+		border: 0;
+		margin: 0;
+	}
+
+	ul {
+		list-style: none;
+		padding: 0;
+
+		li {
+			margin-bottom: 0.25em;
+		}
+	}
+}
+
 
 // ---------- adjusting breadcrump style ------------------
 .cmp_breadcrumbs {
