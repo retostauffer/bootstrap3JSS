@@ -250,7 +250,7 @@
                         	                                	<strong>{translate key="semicolon" label=$translatedDoi}</strong>
 								</div>
 								<div class="col-xs-12 col-sm-8">
-                        	                                	<a href="{$doiUrl}">{$doiUrl}</a>
+                        	                                	<a href="{$doiUrl}">{$doiUrl|replace:"https://doi.org/":""}</a>
 								</div>
 							</div>
                         	                {/if}

@@ -13,6 +13,8 @@
  * @uses $showGalleyLinks bool Show galley links to users without access?
  * @uses $hideGalleys bool Hide the article galleys for this article?
  * @uses $primaryGenreIds array List of file genre ids for primary file types
+ * @uses $sectionTitle Name of the section the article has been published in.
+ *       Forwarded from outer loop.
  *}
 
 
@@ -49,6 +51,20 @@
 				{/if}
 			</div>
 			<div class="col-sm-2 pages">
+                		{capture assign="JSSIssueNumber"}{call_hook name="Templates::Common::getJSSIssueNumber"}{/capture}
+
+				{* Remove last character (the plural 's') *}
+				{capture assign="sectionTitleLen"}{$sectionTitle|count_characters}{/capture}
+				{capture assign="sectionTitle"}{$sectionTitle|truncate:$sectionTitleLen:"":true|escape}{/capture}
+
+				Vol. {$issue->getVolume()}
+				{if $sectionTitle == "Articles"}
+					Issue
+				{else}
+					{$sectionTitle|escape}
+				{/if}
+                 	        {$JSSIssueNumber}<br />
+				
 
 				{* Page numbers for this article *}
 				{if $article->getPages()}

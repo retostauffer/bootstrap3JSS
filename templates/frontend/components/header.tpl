@@ -70,6 +70,11 @@
                                                 <span class="icon-bar"></span>
                                                 <span class="icon-bar"></span>
                                         </button>
+                                        <button type="button" class="navbar-toggle search-collapsed">
+						<a href="{$baseUrl}/search" target="_self">
+							<i class="fas fa-search"></i>	
+						</a>
+                                        </button>
 
                                         {* Logo or site title. Only use <h1> heading on the homepage.
                                            Otherwise that should go to the page title. *}
@@ -99,7 +104,7 @@
 
                                                 {* Search form *}
                                                 {if $currentContext}
-							<ul class="pull-right navbar-extra-buttons">
+							<ul class="pull-right hidden-xs navbar-extra-buttons">
 								<li>
 									<a href="{$baseUrl}/search" target="_self"><i class="fas fa-search"></i>Search</a>
 								</li>

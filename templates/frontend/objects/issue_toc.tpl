@@ -109,7 +109,7 @@
 					{/if}
 					<div class="media-list">
 						{foreach from=$section.articles item=article}
-							{include file="frontend/objects/article_summary.tpl"}
+							{include file="frontend/objects/article_summary.tpl" sectionTitle=$section.title}
 						{/foreach}
 					</div>
 				{/if}

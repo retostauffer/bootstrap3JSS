@@ -74,7 +74,6 @@
 								</ul>
 							</div>
 						</div>
-					
 					{/if}
 					{* ----------------------- END OF ROLE DEPENDENT NAVIGATION -------------------- *} 
 
@@ -93,7 +92,7 @@
                                     {foreach from=$announcements item=announcement}
                                             {include file="frontend/objects/announcement_list.tpl"}
 				            {capture assign="acounter"}{$acounter + 1}{/capture}
-                                            {if $acounter > 3}{break}{/if}
+                                            {if $acounter > $jssAnnouncementLimit}{break}{/if}
                                     {/foreach}
                             </ul>
                     </div>
@@ -139,8 +138,58 @@
                 {/if}
                 {* END OF ONLY SHOW IF VIEW IS NOT TYPE ARTICLE *}
 
-
                 {* CUSTOM BLOCKS ONLY SHOWN IF NOT ARTICLE VIEW *}
+		{if $requestedPage == "article" && $citation}
+		        <div class="pkp_block pkp_block_main how-to-cite">
+		                <h2 class="title">
+		                        {translate key="submission.howToCite"}
+		                </h2>
+		                <div class="content">
+		                        <div id="citationOutput" role="region" aria-live="polite">
+		                                {$citation}
+		                        </div>
+		                        <div class="btn-group">
+		                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-controls="cslCitationFormats">
+		                                {translate key="submission.howToCite.citationFormats"}
+		                                        <span class="caret"></span>
+		                          </button>
+		                          <ul class="dropdown-menu" role="menu">
+		                                        {foreach from=$citationStyles item="citationStyle"}
+		                                                <li>
+		                                                        <a
+		                                                                aria-controls="citationOutput"
+		                                                                href="{url page="citationstylelanguage" op="get" path=$citationStyle.id params=$citationArgs}"
+		                                                                data-load-citation
+		                                                                data-json-href="{url page="citationstylelanguage" op="get" path=$citationStyle.id params=$citationArgsJson}"
+		                                                        >
+		                                                                {$citationStyle.title|escape}
+		                                                        </a>
+		                                                </li>
+		                                        {/foreach}
+		                          </ul>         
+		                        </div>
+		                        {if !empty($citationDownloads)}
+		                        <div class="btn-group">
+		                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-controls="cslCitationFormats">
+		                                        {translate key="submission.howToCite.downloadCitation"}
+		                                                <span class="caret"></span>
+		                                </button>
+		                        {* Download citation formats *}
+		                        <ul class="dropdown-menu" role="menu">
+		                                {foreach from=$citationDownloads item="citationDownload"}
+		                                        <li>
+		                                                <a href="{url page="citationstylelanguage" op="download" path=$citationDownload.id params=$citationArgs}">
+		                                                        <span class="fa fa-download"></span>
+		                                                        {$citationDownload.title|escape}
+		                                                </a>
+		                                {/foreach}
+		                        </ul>           
+		                        </div>
+		                        {/if}
+		                </div>
+		        </div>
+		{/if}
+
                 {if $requestedPage == "article" && ($licenseTerms || $licenseUrl)}
                     <div class="pkp_block" id="jss-copyright">
                         <h2 class="title">{translate|escape key="plugins.themes.bootstrap3JSS.license"}</h2>

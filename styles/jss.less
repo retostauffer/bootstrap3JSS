@@ -270,6 +270,14 @@ a {
 		}
 	}
 
+	.navbar-toggle {
+		width: 44px;
+		height: 44px;
+		color: white;
+		a { color: white; }
+	}
+
+
 	.navbar-collapse {
 		padding: 0;
 	}
@@ -517,33 +525,16 @@ a {
 	}
 }
 
-
-
-// ---------- custom header block publisher ---------------
-#jss-publisher {
-    background-color:            black;
-    padding: 0.25em 0;
-
-    div {
-        div {
-            color:               white;
-            font-size:          .8em;
-
-            span {
-                padding: 0 2em;
-            } 
-        }
-
-        @media (max-width: @screen-md-min) {
-            div:nth-child(2) {
-                display: none;
-            }
-        }
-    }
+// ----------------- custom publisher info ----------------
+#jss-publisher-list {
+	.content {
+		strong {
+			margin-right: 0.5em;
+		}
+	}
 }
 
-
-// ----------------- custom block publisher ---------------
+// ----------------- custom block announcements -----------
 #jss-announcement-list {
     ul {
         list-style: none;
