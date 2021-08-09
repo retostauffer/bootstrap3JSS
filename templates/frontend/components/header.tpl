@@ -54,7 +54,7 @@
                                                 </a>
                                         {/if}
                                         <nav aria-label="{translate|escape key="common.navigation.user"}">
-                                                {load_menu name="user" id="navigationUser" ulClass="nav nav-pills tab-list pull-right"}
+                                                {load_menu name="user" id="navigationUser" ulClass="nav nav-pills tab-list pull-right hidden-xs"}
                                         </nav>
                                 </div><!-- .row -->
                         </div><!-- .container -->
@@ -95,16 +95,20 @@
                                         <nav id="nav-menu" class="navbar-collapse collapse" aria-label="{translate|escape key="common.navigation.site"}">
                                                 {* Primary navigation menu for current application *}
                                                 {$primaryMenu}
+	                                        {load_menu name="user" id="navigationUserXs" ulClass="nav navbar-nav visible-xs"}
 
                                                 {* Search form *}
                                                 {if $currentContext}
+							<ul class="pull-right navbar-extra-buttons">
+								<li>
+									<a href="{$baseUrl}/search" target="_self"><i class="fas fa-search"></i>Search</a>
+								</li>
+							</ul>
+
+<!--
 							<div class="pull-md-right search-link">
 								<a href="{$baseUrl}/search" target="_self"><i class="fas fa-search"></i>Search</a>
 							</div>
-<!--
-                                                        <div class="pull-md-right">
-                                                                {include file="frontend/components/searchForm_simple.tpl"}
-                                                        </div>
 -->
                                                 {/if}
                                         </nav>
