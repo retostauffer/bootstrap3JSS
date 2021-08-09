@@ -11,6 +11,9 @@ msgstr ""
 "PO-Revision-Date: 2021-02-18T19:18:25+00:00\n"
 "Language: \n"
 
+msgid "plugins.themes.bootstrap3JSS.latestAnnouncements"
+msgstr "Latest Announcements"
+
 msgid "plugins.themes.bootstrap3JSS.sponsors"
 msgstr "Sponsored by"
 

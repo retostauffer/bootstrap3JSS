@@ -21,7 +21,6 @@
 	-->
 
         {if empty($isFullWidth)}
-                {capture assign="retoCode"}{call_hook name="Templates::Common::Reto"}{/capture}
 
                 {capture assign="sidebarCode"}{call_hook name="Templates::Common::Sidebar"}{/capture}
 
@@ -80,19 +79,21 @@
 					{* ----------------------- END OF ROLE DEPENDENT NAVIGATION -------------------- *} 
 
 
-                {$retoCode}
 
                 {$sidebarCode}
 
                 {* CUSTOM BLOCKS ONLY SHOWN IF NOT ARTICLE VIEW *}
                 {if $requestedPage != "article"}
                     <div class="pkp_block" id="jss-announcement-list">
-                            <h2 class="title pkp_screen_reader">List of latest announcements</h2>
-                            <h2 class="title">Latest announcements</h2>
+                            <h2 class="title pkp_screen_reader">{translate|escape key="plugins.themes.bootstrap3JSS.latestAnnouncements"}</h2>
+                            <h2 class="title">{translate|escape key="plugins.themes.bootstrap3JSS.latestAnnouncements"}</h2>
                                     
                             <ul>
+				    {capture assign="acounter"}{1}{/capture}
                                     {foreach from=$announcements item=announcement}
                                             {include file="frontend/objects/announcement_list.tpl"}
+				            {capture assign="acounter"}{$acounter + 1}{/capture}
+                                            {if $acounter > 3}{break}{/if}
                                     {/foreach}
                             </ul>
                     </div>

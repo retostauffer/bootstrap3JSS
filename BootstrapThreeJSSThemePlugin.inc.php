@@ -17,6 +17,17 @@ import('lib.pkp.classes.plugins.ThemePlugin');
 class BootstrapThreeJSSThemePlugin extends ThemePlugin {
 
         /*
+	 * This was a test for creating dynamic content.
+	 * This can be used in the templates (.tpl)
+	 * by first 'loading' this module/hook (must be registered, see below)
+	 * and then do the following in the .tpl file:
+	 *
+         * {capture assign="retoCode"}{call_hook name="Templates::Common::Reto"}{/capture}
+         * {$retoCode}
+	 *
+	 * The first line captures whatever the hook contains, the second one simply prints
+	 * the content.
+	 *
          * @param $hookName string
          * @param $args array [
          *......@option array Params passed to the hook
