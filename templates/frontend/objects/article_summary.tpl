@@ -45,32 +45,25 @@
 		</h3>
 
 		<div class="row">
-			<div class="col-sm-10 authors">
+			<div class="col-sm-9 authors">
 				{if $showAuthor}
 					{$article->getAuthorString()|escape}
 				{/if}
 			</div>
-			<div class="col-sm-2 pages">
+			<div class="col-sm-3 pages">
                 		{capture assign="JSSIssueNumber"}{call_hook name="Templates::Common::getJSSIssueNumber"}{/capture}
 
 				{* Remove last character (the plural 's') *}
 				{capture assign="sectionTitleLen"}{$sectionTitle|count_characters}{/capture}
 				{capture assign="sectionTitle"}{$sectionTitle|truncate:$sectionTitleLen:"":true|escape}{/capture}
 
-				Vol. {$issue->getVolume()}
+				Vol. {$issue->getVolume()},
 				{if $sectionTitle == "Articles"}
 					Issue
 				{else}
 					{$sectionTitle|escape}
 				{/if}
                  	        {$JSSIssueNumber}<br />
-				
-
-				{* Page numbers for this article *}
-				{if $article->getPages()}
-					Pages:
-					{$article->getPages()|escape}
-				{/if}
 			</div>
 		</div>
 
