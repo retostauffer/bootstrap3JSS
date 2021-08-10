@@ -29,188 +29,89 @@
 		<div class="sidebar-separator hidden-md hidden-lg"></div>
 
                 {if $requestedPage != "article"}
-                    <div class="pkp_block" id="jss-publisher-list">
-                        <h2 class="title pkp_screen_reader">{translate|escape key="plugins.themes.bootstrap3JSS.journalinformation"}</h2>
-                        <h2 class="title">{translate|escape key="plugins.themes.bootstrap3JSS.journalinformation"}</h2>
-                        <div class="content">
-                            <strong>{translate|escape key="plugins.themes.bootstrap3JSS.publisher"}:</strong>{$jssPublishedBy}<br />
-                            <strong>{translate|escape key="plugins.themes.bootstrap3JSS.editorsinchief"}:</strong>{$jssEditorsInChief}<br />
-                            <strong>{translate|escape key="plugins.themes.bootstrap3JSS.ISSN"}:</strong>{$jssISSN}<br />
-                            <strong>{translate|escape key="plugins.themes.bootstrap3JSS.CODEN"}:</strong>{$jssCoden}<br />
-                        </div>
-                    </div>
+                	<div class="pkp_block" id="jss-publisher-list">
+                		{include file="frontend/components/jss_publisher_info.tpl"}
+			</div>
                 {/if}
 
-					{* --------------------- BEGIN OF ROLE DEPENDENT NAVIGATION -------------------- *} 
-					{* CHECK IF THE USER HAS ANY OF THESE RULES ASSIGNED *}
-					{if in_array(ROLE_ID_MANAGER, (array) $userRoles) || in_array(ROLE_ID_SUB_EDITOR, (array) $userRoles) || in_array(ROLE_ID_ASSISTANT, (array) $userRoles) || in_array(ROLE_ID_REVIEWER, (array) $userRoles) || in_array(ROLE_ID_AUTHOR, (array) $userRoles)}
-					
-						<div class="pkp_block">
-							<h2 class="title">
-								{translate|escape key="plugins.themes.bootstrap3JSS.rolenav"}
-							</h2>
-							<div class="content">
-								<ul>
-									{if in_array(ROLE_ID_MANAGER, (array) $userRoles)}
-										{capture assign="forManagersUrl"}{url router=$smarty.const.ROUTE_PAGE page="guides" op="managers"}{/capture}
-										<li><a href="{$forManagersUrl}" target="_self">For Managers</a></li>
-									{/if}
-									{if in_array(ROLE_ID_SUB_EDITOR, (array) $userRoles)}
-										{capture assign="forEditorsUrl"}{url router=$smarty.const.ROUTE_PAGE page="guides" op="editors"}{/capture}
-										<li><a href="{$forEditorsUrl}" target="_self">For Editors</a></li>
-									{/if}
-									{if in_array(ROLE_ID_ASSISTANT, (array) $userRoles)}
-										{capture assign="forAssistantsUrl"}{url router=$smarty.const.ROUTE_PAGE page="guides" op="assistants"}{/capture}
-										<li><a href="{$forAssistantsUrl}" target="_self">For Assistants</a></li>
-									{/if}
-									{if in_array(ROLE_ID_REVIEWER, (array) $userRoles)}
-										{capture assign="forReviewersUrl"}{url router=$smarty.const.ROUTE_PAGE page="guides" op="reviewers"}{/capture}
-										<li><a href="{$forReviewersUrl}" target="_self">For Reviewers</a></li>
-									{/if}
-									{if in_array(ROLE_ID_AUTHOR, (array) $userRoles)}
-										{capture assign="forAuthorsUrl"}{url router=$smarty.const.ROUTE_PAGE page="guides" op="authors"}{/capture}
-										<li><a href="{$forAuthorsUrl}" target="_self">For Authors</a></li>
-									{/if}
-								</ul>
-							</div>
-						</div>
-					{/if}
-					{* ----------------------- END OF ROLE DEPENDENT NAVIGATION -------------------- *} 
-
-
+              	{include file="frontend/components/role_dependent_navigation.tpl"}
 
                 {$sidebarCode}
 
-                {* CUSTOM BLOCKS ONLY SHOWN IF NOT ARTICLE VIEW *}
                 {if $requestedPage != "article"}
-                    <div class="pkp_block" id="jss-announcement-list">
-                            <h2 class="title pkp_screen_reader">{translate|escape key="plugins.themes.bootstrap3JSS.latestAnnouncements"}</h2>
-                            <h2 class="title">{translate|escape key="plugins.themes.bootstrap3JSS.latestAnnouncements"}</h2>
-                                    
-                            <ul>
-				    {capture assign="acounter"}{1}{/capture}
-                                    {foreach from=$announcements item=announcement}
-                                            {include file="frontend/objects/announcement_list.tpl"}
-				            {capture assign="acounter"}{$acounter + 1}{/capture}
-                                            {if $acounter > $jssAnnouncementLimit}{break}{/if}
-                                    {/foreach}
-                            </ul>
-                    </div>
+                	<div class="pkp_block" id="jss-announcement-list">
+                	    	{include file="frontend/components/announcement_list.tpl"}
+                	</div>
 
-
-                    <!-- custom block with sponsors -->
-                    <div class="pkp_block jss-sponsors">
-                        <h2 class="title">{translate|escape key="plugins.themes.bootstrap3JSS.sponsors"}</h2>
-                            <div class="content">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                        <a class="image-link" href="https://uibk.ac.at/", target="_new">
-                                        <img src="{$baseUrl}/plugins/themes/bootstrap3JSS/images/logos/uibk.png" />
-                                        </a>
-                                </div>  
-                                <div class="col-xs-4">
-                                        <a class="image-link" href="https://www.uzh.ch/", target="_new">
-                                                <img src="{$baseUrl}/plugins/themes/bootstrap3JSS/images/logos/uzh.png" />
-                                        </a>
-                                </div>  
-                                <div class="col-xs-4">
-                                        <a class="image-link" href="https://ucla.edu/", target="_new">
-                                                <img src="{$baseUrl}/plugins/themes/bootstrap3JSS/images/logos/ucla.png" />
-                                        </a>
-                                </div>  
-                            
-                            </div> <!-- end .row -->
-                        </div> <!-- end .content -->
-                    </div>
-                    <!-- end of custom block with foas -->
-
-                    <!-- custom block with foas information -->
-			<div class="pkp_block jss-foas">
-				<h2 class="title">{translate|escape key="plugins.themes.bootstrap3JSS.foas"}</h2>
-				<div class="content text-justify">
-					<div class="logo-foas pull-left"><img src="{$baseUrl}/plugins/themes/bootstrap3JSS/images/logos/foas.png" /></div>
-					As a matter of principle, <strong>JSS charges no author fees or subscription fees</strong>. Our editors, reviewers, and programmers are volunteers. UCLA Statistics and Universität Innsbruck contribute support staff, website maintenance, website hosting, and some graduate student support. Because of our success and growth we do need more resources in the future. You can support us by becoming a member of the <a href="http://www.foastat.org/" target="_new">Foundation for Open Access Statistics</a> at <a href="http://www.foastat.org/" target="_new">www.foastat.org</a>, and by contributing on their <a href="https://www.foastat.org/donate.html" target="_new">donation page</a>.
-				</div>
-			</div>
-                    <!-- end of custom block with foas -->
-
+                	<div class="pkp_block jss-sponsors">
+                		{include file="frontend/components/jss_sponsors.tpl"}
+                	</div>
 
                 {/if}
-                {* END OF ONLY SHOW IF VIEW IS NOT TYPE ARTICLE *}
+
+		<div class="pkp_block jss-foas">
+                	{include file="frontend/components/jss_foas.tpl"}
+		</div>
 
                 {* CUSTOM BLOCKS ONLY SHOWN IF NOT ARTICLE VIEW *}
 		{if $requestedPage == "article" && $citation}
-		        <div class="pkp_block pkp_block_main how-to-cite">
-		                <h2 class="title">
-		                        {translate key="submission.howToCite"}
-		                </h2>
-		                <div class="content">
-		                        <div id="citationOutput" role="region" aria-live="polite">
-		                                {$citation}
-		                        </div>
-		                        <div class="btn-group">
-		                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-controls="cslCitationFormats">
-		                                {translate key="submission.howToCite.citationFormats"}
-		                                        <span class="caret"></span>
-		                          </button>
-		                          <ul class="dropdown-menu" role="menu">
-		                                        {foreach from=$citationStyles item="citationStyle"}
-		                                                <li>
-		                                                        <a
-		                                                                aria-controls="citationOutput"
-		                                                                href="{url page="citationstylelanguage" op="get" path=$citationStyle.id params=$citationArgs}"
-		                                                                data-load-citation
-		                                                                data-json-href="{url page="citationstylelanguage" op="get" path=$citationStyle.id params=$citationArgsJson}"
-		                                                        >
-		                                                                {$citationStyle.title|escape}
-		                                                        </a>
-		                                                </li>
-		                                        {/foreach}
-		                          </ul>         
-		                        </div>
-		                        {if !empty($citationDownloads)}
-		                        <div class="btn-group">
-		                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-controls="cslCitationFormats">
-		                                        {translate key="submission.howToCite.downloadCitation"}
-		                                                <span class="caret"></span>
-		                                </button>
-		                        {* Download citation formats *}
-		                        <ul class="dropdown-menu" role="menu">
-		                                {foreach from=$citationDownloads item="citationDownload"}
-		                                        <li>
-		                                                <a href="{url page="citationstylelanguage" op="download" path=$citationDownload.id params=$citationArgs}">
-		                                                        <span class="fa fa-download"></span>
-		                                                        {$citationDownload.title|escape}
-		                                                </a>
-		                                {/foreach}
-		                        </ul>           
-		                        </div>
-		                        {/if}
-		                </div>
-		        </div>
+			<div class="pkp_block how-to-cite">
+				<h2 class="title">
+					{translate key="submission.howToCite"}
+				</h2>
+				<div class="content">
+					<div id="citationOutput" role="region" aria-live="polite">
+						{$citation}
+					</div>
+
+					<div class="btn-group">
+					  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-controls="cslCitationFormats">
+					  	{translate key="submission.howToCite.citationFormats"}
+					  	<span class="caret"></span>
+					  </button>
+
+					  <ul class="dropdown-menu" role="menu">
+					  	{foreach from=$citationStyles item="citationStyle"}
+					  		<li>
+					  			<a aria-controls="citationOutput"
+					  			   href="{url page="citationstylelanguage" op="get" path=$citationStyle.id params=$citationArgs}"
+					  			   data-load-citation
+					  			   data-json-href="{url page="citationstylelanguage" op="get" path=$citationStyle.id params=$citationArgsJson}">
+					  				{$citationStyle.title|escape}
+					  			</a>
+					  		</li>
+					  	{/foreach}
+					  </ul>         
+					</div>
+
+					{if !empty($citationDownloads)}
+					<div class="btn-group">
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-controls="cslCitationFormats">
+							{translate key="submission.howToCite.downloadCitation"}
+							<span class="caret"></span>
+						</button>
+					{* Download citation formats *}
+					<ul class="dropdown-menu" role="menu">
+						{foreach from=$citationDownloads item="citationDownload"}
+							<li>
+								<a href="{url page="citationstylelanguage" op="download" path=$citationDownload.id params=$citationArgs}">
+									<span class="fa fa-download"></span>
+									{$citationDownload.title|escape}
+								</a>
+							</li>
+						{/foreach}
+					</ul>           
+					</div>
+					{/if}
+				</div>
+			</div>
 		{/if}
 
                 {if $requestedPage == "article" && ($licenseTerms || $licenseUrl)}
-                    <div class="pkp_block" id="jss-copyright">
-                        <h2 class="title">{translate|escape key="plugins.themes.bootstrap3JSS.license"}</h2>
-			
-                        <div class="content">
-				
-				<i class="fab fa-2x fa-creative-commons"></i>
-				<i class="fab fa-2x fa-creative-commons-by"></i>
-				<img src="{$baseUrl}/plugins/themes/bootstrap3JSS/images/logos/GNU.svg">
-				<img src="{$baseUrl}/plugins/themes/bootstrap3JSS/images/logos/GPLv3.svg"><br />
-				
-				Article: <a href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution License (CC-BY)</a>
-
-				
-
-Code: GNU Genera License <a href="http://www.gnu.org/licenses/gpl-2.0.html" target="_self">version 2</a> or <a href="http://www.gnu.org/licenses/gpl-3.0.html" target="_self">version 3</a> or a <a href="https://gnu.org/licenses/license-list.html#GPLCompatibleLicenses" target="_self">GPL-compatible license</a>.
-
-                        </div>
-                    </div>
+                	<div class="pkp_block" id="jss-copyright">
+				{include file="frontend/components/jss_copyright.tpl"}
+			</div>
                 {/if}
-                {* END OF ONLY SHOW IF VIEW IS AN ARTICLE *}
 
                 </aside><!-- pkp_sidebar.left -->
         {/if}

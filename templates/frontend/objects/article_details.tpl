@@ -39,8 +39,10 @@
                 </h1>
 
                 {if $publication->getData('authors')}
-                        <div class="authors">
-                                {foreach from=$publication->getData('authors') item=author}
+                        <div class="authors authors_long">
+                                {foreach from=$publication->getData('authors') item=author name=author}
+					<strong>{$author->getFullName()|escape}</strong>{if not $smarty.foreach.author.last}, {/if}
+<!--
                                         <div class="author">
                                                 <strong>{$author->getFullName()|escape}</strong>
                                                 {if $author->getLocalizedAffiliation()}
@@ -57,6 +59,7 @@
                                                         </div>
                                                 {/if}
                                         </div>
+-->
                                 {/foreach}
                         </div>
                 {/if}
@@ -280,60 +283,6 @@
 				{* ----------------- END ARTICLE META INFORMATION ------------------- *}
 
 
-
-                                {* ----------------------------  BEGIN CITATION FORM ---------------------------- *}
-                                {if $citation}
-                                        <div class="pkp_block pkp_block_main how-to-cite">
-                                                <h2 class="title">
-                                                        {translate key="submission.howToCite"}
-                                                </h2>
-                                                <div class="content">
-                                                        <div id="citationOutput" role="region" aria-live="polite">
-                                                                {$citation}
-                                                        </div>
-                                                        <div class="btn-group">
-                                                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-controls="cslCitationFormats">
-                                                                {translate key="submission.howToCite.citationFormats"}
-                                                                        <span class="caret"></span>
-                                                          </button>
-                                                          <ul class="dropdown-menu" role="menu">
-                                                                        {foreach from=$citationStyles item="citationStyle"}
-                                                                                <li>
-                                                                                        <a
-                                                                                                aria-controls="citationOutput"
-                                                                                                href="{url page="citationstylelanguage" op="get" path=$citationStyle.id params=$citationArgs}"
-                                                                                                data-load-citation
-                                                                                                data-json-href="{url page="citationstylelanguage" op="get" path=$citationStyle.id params=$citationArgsJson}"
-                                                                                        >
-                                                                                                {$citationStyle.title|escape}
-                                                                                        </a>
-                                                                                </li>
-                                                                        {/foreach}
-                                                          </ul>         
-                                                        </div>
-                                                        {if !empty($citationDownloads)}
-                                                        <div class="btn-group">
-                                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-controls="cslCitationFormats">
-                                                                        {translate key="submission.howToCite.downloadCitation"}
-                                                                                <span class="caret"></span>
-                                                                </button>
-                                                        {* Download citation formats *}
-                                                        <ul class="dropdown-menu" role="menu">
-                                                                {foreach from=$citationDownloads item="citationDownload"}
-                                                                        <li>
-                                                                                <a href="{url page="citationstylelanguage" op="download" path=$citationDownload.id params=$citationArgs}">
-                                                                                        <span class="fa fa-download"></span>
-                                                                                        {$citationDownload.title|escape}
-                                                                                </a>
-                                                                {/foreach}
-                                                        </ul>           
-                                                        </div>
-                                                        {/if}
-                                                </div>
-                                        </div>
-                                {/if}
-                                {* ------------------------------- END CITATION FORM ---------------------------- *}
-
                                 {* PubIds (requires plugins) *}
                                 {foreach from=$pubIdPlugins item=pubIdPlugin}
                                         {if $pubIdPlugin->getPubIdType() == 'doi'}
@@ -362,27 +311,6 @@
                                         {/if}
                                 {/foreach}
 
-                                {* Licensing info: DISABLED ("1" == "2" = false all times) *}
-                                {if "1" == "2" && ($licenseTerms || $licenseUrl)}
-                                        <div class="panel panel-default copyright">
-                                                <div class="panel-body">
-                                                        {if $licenseUrl}
-                                                                {if $ccLicenseBadge}
-                                                                        {$ccLicenseBadge}
-                                                                {else}
-                                                                        <a href="{$licenseUrl|escape}" class="copyright">
-                                                                                {if $copyrightHolder}
-                                                                                        {translate key="submission.copyrightStatement" copyrightHolder=$copyrightHolder copyrightYear=$copyrightYear}
-                                                                                {else}
-                                                                                        {translate key="submission.license"}
-                                                                                {/if}
-                                                                        </a>
-                                                                {/if}
-                                                        {/if}
-                                                        {$licenseTerms}
-                                                </div>
-                                        </div>
-                                {/if}
 
                                 {* Author biographies *}
                                 {assign var="hasBiographies" value=0}
