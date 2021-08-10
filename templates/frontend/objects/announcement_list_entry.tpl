@@ -16,3 +16,4 @@
 		</a><br />
 		<i class="far fa-calendar-alt"></i>{$announcement->getDatePosted()|escape}
 	</li>
+

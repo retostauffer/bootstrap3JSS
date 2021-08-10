@@ -11,6 +11,7 @@
  *       represents a page-level override, and doesn't indicate whether or not
  *       sidebars have been configured for thesite.
  * @uses $requestedPage string Used to suppress one or another thing maybe.
+ * @uses $webfeedData something defined by theme init method.
  *}
 
         </main>
@@ -38,20 +39,25 @@
 
                 {$sidebarCode}
 
-                {if $requestedPage != "article"}
+                {if $requestedPage == "index"}
+			{* Note: only works on index as loaded by PKPIndexHandler class *}
                 	<div class="pkp_block" id="jss-announcement-list">
                 	    	{include file="frontend/components/announcement_list.tpl"}
                 	</div>
+		{/if}
 
+                {if $requestedPage != "article"}
                 	<div class="pkp_block jss-sponsors">
                 		{include file="frontend/components/jss_sponsors.tpl"}
                 	</div>
 
                 {/if}
 
-		<div class="pkp_block jss-foas">
-                	{include file="frontend/components/jss_foas.tpl"}
-		</div>
+                {if $requestedPage != "article"}
+			<div class="pkp_block jss-foas">
+                		{include file="frontend/components/jss_foas.tpl"}
+			</div>
+		{/if}
 
                 {* CUSTOM BLOCKS ONLY SHOWN IF NOT ARTICLE VIEW *}
 		{if $requestedPage == "article" && $citation}
@@ -131,7 +137,17 @@
                                                 {load_menu name = "footerMenu" id="jss-footer-menu" ulClass='footer-menu'}
                                         {/capture}
                                         {$footerMenu}
+
+					<div class="webfeed_footer">
+						<a href="{$baseUrl}/atom" target="_new">
+							<img src="{$baseUrl}/lib/pkp/templates/images/atom.svg" alt="Atom logo">
+						</a>
+						<a href="{$baseUrl}/atom" target="_new">
+							<img src="{$baseUrl}/lib/pkp/templates/images/rss20_logo.svg" alt="RSS2 logo">
+						</a>
+					</div>
                                 </div>
+
                                 <div class="col-sm-12 col-md-2 pkpinfo" role="complementary">
 
                                         <a href="{url page="about" op="aboutThisPublishingSystem"}">

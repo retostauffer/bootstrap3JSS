@@ -28,7 +28,7 @@
 					{/if}
 					{if in_array(ROLE_ID_SUB_EDITOR, (array) $userRoles)}
 						{capture assign="forEditorsUrl"}{url router=$smarty.const.ROUTE_PAGE page="guides" op="editors"}{/capture}
-						<li><a href="{$forEditorsUrl}" target="_self">For Editors</a></li>
+						<li><a href="{$forEditorsUrl}" target="_self">Editorial process</a></li>
 					{/if}
 					{if in_array(ROLE_ID_ASSISTANT, (array) $userRoles)}
 						{capture assign="forAssistantsUrl"}{url router=$smarty.const.ROUTE_PAGE page="guides" op="assistants"}{/capture}
@@ -36,11 +36,11 @@
 					{/if}
 					{if in_array(ROLE_ID_REVIEWER, (array) $userRoles)}
 						{capture assign="forReviewersUrl"}{url router=$smarty.const.ROUTE_PAGE page="guides" op="reviewers"}{/capture}
-						<li><a href="{$forReviewersUrl}" target="_self">For Reviewers</a></li>
+						<li><a href="{$forReviewersUrl}" target="_self">Handling a review</a></li>
 					{/if}
 					{if in_array(ROLE_ID_AUTHOR, (array) $userRoles)}
-						{capture assign="forAuthorsUrl"}{url router=$smarty.const.ROUTE_PAGE page="guides" op="authors"}{/capture}
-						<li><a href="{$forAuthorsUrl}" target="_self">For Authors</a></li>
+						{capture assign="forAuthorsUrl"}{url router=$smarty.const.ROUTE_PAGE page="guides" op="submission"}{/capture}
+						<li><a href="{$forAuthorsUrl}" target="_self">Submitting a manuscript</a></li>
 					{/if}
 				</ul>
 			</div>

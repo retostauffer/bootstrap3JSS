@@ -362,6 +362,20 @@ a {
 	}
 }
 
+// ---------- adjusting registration page -----------------
+.page_register {
+	.registration_content {
+		.row {
+			margin-bottom: 2em;
+			&:first-child {
+				margin-top: 2em;
+			}
+		}
+		svg {
+			color: @brand-primary;
+		}
+	}
+}
 
 // ---------- adjusting breadcrump style ------------------
 .cmp_breadcrumbs {
@@ -383,6 +397,13 @@ a {
 			margin-left: 0.5em;
 			&:first-child {
 				margin-left: 0;
+			}
+		}
+
+		a.orcid {
+			margin-left: 0.5em;
+			&:hover {
+				color: @brand-secondary;
 			}
 		}
 	}
@@ -640,6 +661,18 @@ footer {
 				margin-top: 1em;
 				max-width: 200px;
 
+			}
+		}
+	}
+
+	.webfeed_footer {
+		a {
+			&:hover {
+				text-decoration: none;
+			}
+
+			&:first-child {
+				margin-right: 1em;
 			}
 		}
 	}

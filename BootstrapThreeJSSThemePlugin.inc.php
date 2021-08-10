@@ -94,9 +94,11 @@ class BootstrapThreeJSSThemePlugin extends ThemePlugin {
 
         	# Required to be able to set variables for the templating engine
         	HookRegistry::register ('TemplateManager::display', array($this, 'loadTemplateData'));
+        	HookRegistry::register ('TemplateManager::display', array($this, 'loadWebfeedData'));
 
         	HookRegistry::register('Templates::Common::Reto', [$this, 'reto']);
         	HookRegistry::register('Templates::Common::getJSSIssueNumber', [$this, 'get_jss_issue_number']);
+        	HookRegistry::register('Templates::Common::getWebfeedFooter', [$this, 'get_webfeed_footer']);
 
         	$this->setParent('bootstrapthreethemeplugin');
 
@@ -150,6 +152,17 @@ class BootstrapThreeJSSThemePlugin extends ThemePlugin {
         	);
 
         }
+
+	public function loadWebfeedData($hookName, $args) {
+		$templateMgr = $args[0];
+		$template    = $args[1];
+
+		import('plugins.generic.webFeed.WebFeedPlugin');
+		//$res = new WebFeedBlockPlugin();
+		$res = "Ach wie geht denn der Scheiss ....";
+		$templateMgr->assign('webfeedData', $res);
+
+	}
 
 	public function loadTemplateData($hookName, $args) {
 		$templateMgr = $args[0];
