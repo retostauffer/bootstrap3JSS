@@ -129,15 +129,11 @@
 
                         <div class="row">
                                 <div class="col-sm-12 col-md-5">
-                                        {$pageFooter}
-                                </div>
-                                <div class="col-sm-12 col-md-3">
 					<strong>{translate|escape key="plugins.themes.bootstrap3JSS.footermenutitle"}</strong>
                                         {capture assign="footerMenu"}
-                                                {load_menu name = "footerMenu" id="jss-footer-menu" ulClass='footer-menu'}
+                                                {load_menu name = "footerMenu" class="jss-footer-menu" ulClass='footer-menu'}
                                         {/capture}
                                         {$footerMenu}
-
 					<div class="webfeed_footer">
 						<a href="{$baseUrl}/atom" target="_new">
 							<img src="{$baseUrl}/lib/pkp/templates/images/atom.svg" alt="Atom logo">
@@ -146,6 +142,14 @@
 							<img src="{$baseUrl}/lib/pkp/templates/images/rss20_logo.svg" alt="RSS2 logo">
 						</a>
 					</div>
+                                </div>
+                                <div class="col-sm-12 col-md-5">
+					<strong>{translate|escape key="plugins.themes.bootstrap3JSS.footermenutitleexternal"}</strong>
+                                        {capture assign="footerMenuExternal"}
+                                                {load_menu name = "footerMenuExternal" class="jss-footer center" ulClass='footer-menu center'}
+                                        {/capture}
+                                        {$footerMenuExternal}
+
                                 </div>
 
                                 <div class="col-sm-12 col-md-2 pkpinfo" role="complementary">
