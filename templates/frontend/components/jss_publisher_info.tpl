@@ -13,7 +13,7 @@
 	<div class="content">
 	    <strong>{translate|escape key="plugins.themes.bootstrap3JSS.publisher"}:</strong>{$jssPublishedBy}<br />
 	    <strong>{translate|escape key="plugins.themes.bootstrap3JSS.editorsinchief"}:</strong>{$jssEditorsInChief}<br />
-	    <strong>{translate|escape key="plugins.themes.bootstrap3JSS.board"}:</strong><span><a href="{$baseUrl}/about/editorialBoard" target="_self">Editorial Board</a></span><br />
+	    <strong>{translate|escape key="plugins.themes.bootstrap3JSS.board"}:</strong><span><a href="{$baseUrl}/about/editorialTeam" target="_self">Editorial Team</a></span><br />
 	    <strong>{translate|escape key="plugins.themes.bootstrap3JSS.ISSN"}:</strong>{$jssISSN}<br />
 	    <strong>{translate|escape key="plugins.themes.bootstrap3JSS.CODEN"}:</strong>{$jssCoden}<br />
 	</div>

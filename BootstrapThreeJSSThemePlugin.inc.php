@@ -104,8 +104,12 @@ class BootstrapThreeJSSThemePlugin extends ThemePlugin {
         	$this->removeOption('bootstrapTheme', 'FieldOptions');
         	$this->modifyStyle('bootstrap',
         	                    array('addLess' => array('styles/jss.less', 'fontawesome/less/fontawesome.less')));
-
-        	$this->addScript('fontawesome', 'fontawesome/js/all.min.js');
+		//$this->modifyStyle('pkpLib', array('addLess' => array('styles/jss_backend.less')));
+		$this->addStyle('my-custom-style', 'styles/jss_backend.less', array( 'contexts' => 'backend' ));
+		
+		
+		
+		$this->addScript('fontawesome', 'fontawesome/js/all.min.js');
 
         	$this->addMenuArea(array("footerMenu"));
         	$this->addMenuArea(array("footerMenuExternal"));
