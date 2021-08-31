@@ -32,13 +32,14 @@
 	<div class="pkp_notification jss_notification">
 		<div class="notifyInfo">
 			<span class="title">
-				Information to authors
+				Information for authors
 			</span>
 			<span class="description">
-				Once all revised files have been uploaded start a new
-				discussion below by clicking the <strong>Add discussion</strong> button.<br/>
-				Please add both the Journal editor(s) and the Section editor as
-				participants (if available).
+				When you have uploaded <strong>Revisions</strong> for all required files above
+				(including your point-to-point response), you need to inform the editors that
+				your revision is complete. To do so click the <strong>Add discussion</strong>
+				button below, using the subject "Resubmission" and adding all involved section
+				editors and journal editors (if any) as participants. 
 			</span>
 		</div>
 	</div>
