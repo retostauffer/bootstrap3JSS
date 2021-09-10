@@ -17,10 +17,8 @@
 		<img src="{$baseUrl}/plugins/themes/bootstrap3JSS/images/logos/GNU.svg">
 		<img src="{$baseUrl}/plugins/themes/bootstrap3JSS/images/logos/GPLv3.svg"><br />
 		
-		Article: <a href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution License (CC-BY)</a>
+		Article: <a href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution License (CC-BY)</a><br />
 	
-		
-	
-	 <a href="http://www.gnu.org/licenses/gpl-2.0.html" target="_self">version 2</a> or <a href="http://www.gnu.org/licenses/gpl-3.0.html" target="_self">version 3</a> or a <a href="https://gnu.org/licenses/license-list.html#GPLCompatibleLicenses" target="_self">GPL-compatible license</a>.
+	 	Software: GPL General Public License <a href="http://www.gnu.org/licenses/gpl-2.0.html" target="_self">version 2</a> or <a href="http://www.gnu.org/licenses/gpl-3.0.html" target="_self">version 3</a> or a <a href="https://gnu.org/licenses/license-list.html#GPLCompatibleLicenses" target="_self">GPL-compatible license</a>.
 	
 	</div>
