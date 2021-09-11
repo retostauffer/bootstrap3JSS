@@ -87,7 +87,8 @@
 				{translate key="search.searchResults"}
 			</h2>
                 	{iterate from=results item=result}
-                		{include file="frontend/objects/article_summary.tpl" article=$result.publishedSubmission journal=$result.journal showDatePublished=true hideGalleys=true heading="h3"}
+				{* Handing over a custom variable 'isSearchResult'. If defined, article_summary.tpl will not show volume/issue as $result does not contain it in this case!! *}
+                		{include file="frontend/objects/article_summary.tpl" article=$result.publishedSubmission journal=$result.journal showDatePublished=true hideGalleys=true heading="h3" isSearchResult=1}
                 	{/iterate}
 
 

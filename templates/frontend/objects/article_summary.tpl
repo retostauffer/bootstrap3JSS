@@ -57,6 +57,8 @@
 				{capture assign="sectionTitleLen"}{$sectionTitle|count_characters}{/capture}
 				{capture assign="sectionTitle"}{$sectionTitle|truncate:$sectionTitleLen:"":true|escape}{/capture}
 
+				{if isset($isSearchResult) }
+				{else}
 				Vol. {$issue->getVolume()},
 				{if $sectionTitle == "Articles"}
 					Issue
@@ -64,6 +66,7 @@
 					{$sectionTitle|escape}
 				{/if}
                  	        {$JSSIssueNumber}<br />
+				{/if}
 			</div>
 		</div>
 
