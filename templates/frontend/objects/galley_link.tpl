@@ -66,6 +66,8 @@
 	{capture assign="galleyLabel"}{$galley->getGalleyLabel()|escape}{/capture}
 	{if $galleyLabel == "PDF"}
 		<i class="fas fa-file-pdf"></i>
+		{* Renaming PDF to PAPER (test) *}
+		{capture assign="galleyLabel"}{"PAPER"}{/capture}
 	{else}
 		<i class="fas fa-file-download"></i>
 	{/if}
