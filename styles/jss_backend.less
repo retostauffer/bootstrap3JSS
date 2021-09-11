@@ -27,3 +27,22 @@
 	}
 }
 
+/* Hiding specific elements. Currently used to:
+ * - hide "title prefix" on submitStep3Form html form
+ * - hide "subtitle"     on submitStep3Form html form
+ *
+ * Controlled by templates/submission/submissionMetadataFormTitleFields.tpl
+ * included via  templates/submission/form/step3.tpl, both located in our
+ * custom child theme to overrule lib/pkp/templates/submission/ templates.
+ */
+.jss_theme_hide_element {
+	display: none;
+}
+
+/* As we hide some elements (title prefix and subtitle)
+ * we now adjust the 'title' field to be nicely displayed.
+ */
+.jss_submission_step3_title {
+	width: 100%;
+	padding-bottom: 2em;
+}

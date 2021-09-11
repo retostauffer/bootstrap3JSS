@@ -64,4 +64,3 @@ msgstr "CODEN"
 
 msgid "plugins.themes.bootstrap3JSS.rolenav"
 msgstr "JSS Guides"
-
