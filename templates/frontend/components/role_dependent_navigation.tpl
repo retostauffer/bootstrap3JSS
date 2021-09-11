@@ -30,10 +30,7 @@
 						{capture assign="forEditorsUrl"}{url router=$smarty.const.ROUTE_PAGE page="guides" op="editors"}{/capture}
 						<li><a href="{$forEditorsUrl}" target="_self">Editorial process</a></li>
 					{/if}
-					{if in_array(ROLE_ID_ASSISTANT, (array) $userRoles)}
-						{capture assign="forAssistantsUrl"}{url router=$smarty.const.ROUTE_PAGE page="guides" op="assistants"}{/capture}
-						<li><a href="{$forAssistantsUrl}" target="_self">For Assistants</a></li>
-					{/if}
+					{* Unused: in_array(ROLE_ID_ASSISTANT, (array) $userRoles) which could be used for 'Assistant' roles (see user and roles) }
 					{if in_array(ROLE_ID_REVIEWER, (array) $userRoles)}
 						{capture assign="forReviewersUrl"}{url router=$smarty.const.ROUTE_PAGE page="guides" op="reviewers"}{/capture}
 						<li><a href="{$forReviewersUrl}" target="_self">Handling a review</a></li>
