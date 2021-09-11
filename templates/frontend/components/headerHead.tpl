@@ -8,6 +8,24 @@
  * Common site header <head> tag and contents.
  *}
 <head>
+
+	{* Open Graph for article type sites *}
+	{if $requestedPage == "article"}
+		{capture assign=ogDoi}{$article->getStoredPubId("doi")}{/capture}
+		{capture assign=ogTitle}{$article->getLocalizedTitle()}{/capture}
+		{capture assign=ogDescription}{$article->getLocalizedAbstract()}{/capture}
+
+		<meta name="og:title" content="{$ogTitle}" />
+		<meta name="og:description" content="{$ogDescription}" />
+		<meta name="og:image" content="{$baseUrl}/plugins/themes/bootstrap3JSS/images/jsslogo.jpg" />
+		<meta name="og:type" content="website" />
+		<meta name="og:url" content="https://doi.org/{$ogDoi}" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@jstatsoft" />
+	
+	
+	{/if}
+
 	<meta charset="{$defaultCharset|escape}">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>
@@ -36,6 +54,7 @@
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage" content="/plugins/themes/bootstrap3JSS/favicon//ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
+
 
 	{load_header context="frontend"}
 	{load_stylesheet context="frontend"}
