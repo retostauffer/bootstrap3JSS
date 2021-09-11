@@ -15,9 +15,17 @@
 
 	{* If a single article view is requested *}
 	{if $requestedPage == "article" && $requestedOp == "view"}
+		{capture assign=ogAuthors}{$article->getAuthorString()}{/capture}
 		{capture assign=ogUrl}{"https://doi.org/`$article->getStoredPubId("doi")`"}{/capture}
 		{capture assign=ogTitle}{$article->getLocalizedTitle()}{/capture}
 		{capture assign=ogDescription}{$article->getLocalizedAbstract()}{/capture}
+	
+		{* Empty string (less than 10 non-empty characters) for ogDescription? That means no article and must be a book review *}
+		{if $ogDescription|count_characters < 10}
+			{capture assign=ogDescription}{"Book review by `$ogAuthors`"}{/capture}
+		{else}
+			{capture assign=ogTitle}{"`$ogTitle` by `$ogAuthors`"}{/capture}
+		{/if}
 
 	{* An issue view is the overview of one volume in the world of JSS *}
 	{elseif $requestedPage == "issue" && $requestedOp == "view"}
