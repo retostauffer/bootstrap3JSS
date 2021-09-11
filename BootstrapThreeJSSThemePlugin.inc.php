@@ -106,6 +106,11 @@ class BootstrapThreeJSSThemePlugin extends ThemePlugin {
         	                    array('addLess' => array('styles/jss.less', 'fontawesome/less/fontawesome.less')));
 		//$this->modifyStyle('pkpLib', array('addLess' => array('styles/jss_backend.less')));
 		$this->addStyle('my-custom-style', 'styles/jss_backend.less', array( 'contexts' => 'backend' ));
+
+		// Adding custom jQuery script to manipulate
+		// some pages/popups without the need to change
+		// the system or theme.
+		$this->addScript('my-custom-script', 'js/jss_backend.js', array( 'contexts' => 'backend' ));
 		
 		
 		

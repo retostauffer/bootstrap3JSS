@@ -46,3 +46,21 @@
 	width: 100%;
 	padding-bottom: 2em;
 }
+
+/* We are manipulating some pages using js/jss_backend.js which adds
+ * elements or manipulates elements to set specific id's or classes.
+ * The reason for it is that we can manipulate it with js/css. The
+ * following definitions are set in place to deal with them.
+ */
+div {
+	&.jss_skipemail_hidden {
+		display: none;
+	}
+}
+span {
+	&.jss_skipemail_hidden_change {
+		cursor: pointer;
+		color: #006798;
+	}
+}
+
