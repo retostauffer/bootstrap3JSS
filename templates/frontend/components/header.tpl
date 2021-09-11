@@ -125,3 +125,7 @@
                 {* Wrapper for page content and sidebars *}
                 <div class="pkp_structure_content container">
                         <main class="pkp_structure_main col-sm-12 col-md-8" role="main">
+				
+				{* Custom transition note *}
+				{include file="frontend/components/jss_transition_note.tpl"}
+
