@@ -9,22 +9,42 @@
  *}
 <head>
 
-	{* Open Graph for article type sites *}
-	{if $requestedPage == "article"}
-		{capture assign=ogDoi}{$article->getStoredPubId("doi")}{/capture}
+	{* Using the following two variables *}
+	{* $requestedPage *}
+	{* $requestedOp *}
+
+	{* If a single article view is requested *}
+	{if $requestedPage == "article" && $requestedOp == "view"}
+		{capture assign=ogUrl}{"https://doi.org/`$article->getStoredPubId("doi")`"}{/capture}
 		{capture assign=ogTitle}{$article->getLocalizedTitle()}{/capture}
 		{capture assign=ogDescription}{$article->getLocalizedAbstract()}{/capture}
 
-		<meta name="og:title" content="{$ogTitle}" />
-		<meta name="og:description" content="{$ogDescription}" />
-		<meta name="og:image" content="{$baseUrl}/plugins/themes/bootstrap3JSS/images/jsslogo.jpg" />
-		<meta name="og:type" content="website" />
-		<meta name="og:url" content="https://doi.org/{$ogDoi}" />
-		<meta name="twitter:card" content="summary" />
-		<meta name="twitter:site" content="@jstatsoft" />
-	
-	
+	{* An issue view is the overview of one volume in the world of JSS *}
+	{elseif $requestedPage == "issue" && $requestedOp == "view"}
+		{capture assign=ogUrl}{"`$baseUrl`/`$smarty.server.REQUEST_URI`"}{/capture}
+		{capture assign=ogTitle}{"`$currentContext->getLocalizedName()` `$pageTitleTranslated|strip_tags`"}{/capture}
+		{capture assign=ogDescription}{"`$currentContext->getLocalizedName()`: Volume `$issue->getVolume()` with `$issue->getNumArticles()` articles published `$issue->getYear()`."}{/capture}
+
+	{* The issue archive view is simply the archive *}
+	{elseif $requestedPage == "issue" && $requestedOp == "archive"}
+		{capture assign=ogUrl}{"`$baseUrl``$smarty.server.REQUEST_URI`"}{/capture}
+		{capture assign=ogTitle}{"`$currentContext->getLocalizedName()` publication archive."}{/capture}
+		{capture assign=ogDescription}{"Archive of all published articles. Free and peer-reviewed."}{/capture}
+
+	{* Else rolling out a default description *}
+	{else}
+		{capture assign=ogUrl}{"`$baseUrl``$smarty.server.REQUEST_URI`"}{/capture}
+		{capture assign=ogTitle}{"`$currentContext->getLocalizedName()`"}{/capture}
+		{capture assign=ogDescription}{"`$currentContext->getLocalizedName()`"}{/capture}
 	{/if}
+
+	<meta name="og:title" content="{$ogTitle}" />
+	<meta name="og:description" content="{$ogDescription}" />
+	<meta name="og:image" content="{$baseUrl}/plugins/themes/bootstrap3JSS/images/jsslogo.jpg" />
+	<meta name="og:type" content="website" />
+	<meta name="og:url" content="{$ogUrl}" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@jstatsoft" />
 
 	<meta charset="{$defaultCharset|escape}">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
