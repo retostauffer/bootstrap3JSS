@@ -70,5 +70,14 @@ $(document).ready(function() {
 
 	});
 
+	// Replace a-content (text of link) when we find a hyperref containing "Round&nbsp;1".
+	// \u00a0 is just &nbsp; in unicode
+	$("body").on("DOMNodeInserted", "#reviewTabs", function() {
+		var a = $("#reviewTabs ul[role = 'tablist'] > li[role = 'tab'] a:contains('Round\u00a01')")
+		$.each(a, function() {
+			if ($(this).text() != "Round\u00a01") return
+			$(this).html("Round\u00a01\u00a0(prescreening)"); 
+		});
+	});
 
 }); // End on document ready
