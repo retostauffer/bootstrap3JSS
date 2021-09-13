@@ -79,5 +79,13 @@ $(document).ready(function() {
 			$(this).html("Round\u00a01\u00a0(prescreening)"); 
 		});
 	});
+	// ... schiache Kopie, aber muss erst mal rennen (Reto&Max)
+	$("body").on("DOMNodeInserted", "#externalReviewRoundTabs", function() {
+		var a = $("#externalReviewRoundTabs ul[role = 'tablist'] > li[role = 'tab'] a:contains('Round\u00a01')")
+		$.each(a, function() {
+			if ($(this).text() != "Round\u00a01") return
+			$(this).html("Round\u00a01\u00a0(prescreening)"); 
+		});
+	});
 
 }); // End on document ready
