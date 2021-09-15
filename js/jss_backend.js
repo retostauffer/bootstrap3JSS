@@ -2,9 +2,10 @@
 
 $(document).ready(function() {
 
-
+	// -------------------------------------------------------------------
 	// Whenever we add an element with class pkp_modal_panel:
 	// Check (and manipulate) a series of objects/elements.
+	// -------------------------------------------------------------------
 	$("body").on("DOMNodeInserted", ".pkp_modal_panel", function() {
 
 		// Change default decision when a user clicks
@@ -70,12 +71,15 @@ $(document).ready(function() {
 
 	});
 
+	// -------------------------------------------------------------------
 	// Replace a-content (text of link) when we find a hyperref containing "Round&nbsp;1".
+	// Executed every time a #reviewTabs element is added to the DOM.
 	// \u00a0 is just &nbsp; in unicode
+	// -------------------------------------------------------------------
 	$("body").on("DOMNodeInserted", "#reviewTabs", function() {
 		var a = $("#reviewTabs ul[role = 'tablist'] > li[role = 'tab'] a:contains('Round\u00a01')")
 		$.each(a, function() {
-			if ($(this).text() != "Round\u00a01") return
+			if ($(this).text() == "Round\u00a01") return
 			$(this).html("Round\u00a01\u00a0(prescreening)"); 
 		});
 	});
@@ -85,6 +89,39 @@ $(document).ready(function() {
 		$.each(a, function() {
 			if ($(this).text() != "Round\u00a01") return
 			$(this).html("Round\u00a01\u00a0(prescreening)"); 
+		});
+	});
+
+	// -------------------------------------------------------------------
+	// -------------------------------------------------------------------
+	// If a div with a label with content "Prefix" is added
+	// - make sure the content is only the word Prefix (nothing else)
+	// - hide the parent div.
+	$("body").on("DOMNodeInserted", "#submitStep3Form", function() {
+		// Find 'label' which contains 'Prefix'. If found, hide parent div
+		var title_prefix = $(this).find("label:contains('Prefix'):not(.jss-js-hidden-element)");
+		$.each(title_prefix, function() {
+			// Make sure it solely contains this single word
+			if ($(this).text() == "Prefix") {
+				$(this).addClass("jss-js-hidden-element");
+				$(this).parent("div.section").hide();
+			}
+		});
+		//// Find label with content 'Subtitle'. If found, hide parent div
+		var title_subtitle = $(this).find("label:contains('Subtitle'):not(.jss-js-hidden-element)");
+		$.each(title_subtitle, function() {
+			// Make sure it solely contains this single word
+			if ($(this).text() == "Subtitle") {
+				$(this).addClass("jss-js-hidden-element");
+				$(this).parent("div").hide();
+			}
+		});
+		//// Last find title and adjust
+		var title_title = $(this).find("label:contains('Title'):not(.jss-js-modified-css)");
+		$.each(title_title, function() {
+			// Make sure it solely contains this single word
+			$(this).addClass("jss-js-modified-css");
+			$(this).parent("div").css("width", "100%").css("padding-bottom", "1em");
 		});
 	});
 
