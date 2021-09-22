@@ -68,6 +68,8 @@
 		<i class="fas fa-file-pdf"></i>
 		{* Renaming PDF to Paper (test) *}
 		{capture assign="galleyLabel"}{"Paper"}{/capture}
+	{else if $galleyLabel|lower|strstr:"supplement link"}
+		<i class="fas fa-link"></i>
 	{else}
 		<i class="fas fa-file-download"></i>
 	{/if}

@@ -29,6 +29,9 @@
 
 		<div class="sidebar-separator hidden-md hidden-lg"></div>
 
+		{* Custom transition note *}
+		{include file="frontend/components/jss_transition_note.tpl"}
+
                 {if $requestedPage != "article"}
                 	<div class="pkp_block" id="jss-publisher-list">
                 		{include file="frontend/components/jss_publisher_info.tpl"}

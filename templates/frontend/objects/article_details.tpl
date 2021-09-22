@@ -175,6 +175,7 @@
                         	                                                {/if}
                         	                                        </div>
                         	                                {/foreach}
+								</div>
                         	                        </div>
                         	                {/if}
                         	        {/if} <!-- end if date published -->

@@ -127,5 +127,5 @@
                         <main class="pkp_structure_main col-sm-12 col-md-8" role="main">
 				
 				{* Custom transition note *}
-				{include file="frontend/components/jss_transition_note.tpl"}
+				{* include file="frontend/components/jss_transition_note.tpl" *}
 
