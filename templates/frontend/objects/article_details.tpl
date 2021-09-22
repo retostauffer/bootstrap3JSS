@@ -41,7 +41,7 @@
                 {if $publication->getData('authors')}
                         <div class="authors authors_long">
                                 {foreach from=$publication->getData('authors') item=author name=author}
-					<span><strong>{$author->getFullName()|escape}</strong>{if $author->getOrcid()}<a href="{$author->getOrcid()|escape}" class="orcid" target="_blank" alt="ORCID: {$author->getOrcid()|escape}"><i class="fab fa-orcid"></i></a>{/if}{if not $smarty.foreach.author.last}, {/if}</span>
+					<span><nobr><strong>{$author->getFullName()|escape}</strong>{if $author->getOrcid()}<a href="{$author->getOrcid()|escape}" class="orcid" target="_blank" alt="ORCID: {$author->getOrcid()|escape}"><i class="fab fa-orcid"></i></a>{/if}{if not $smarty.foreach.author.last}</nobr>, {/if}</span>
                                 {/foreach}
                         </div>
                 {/if}
