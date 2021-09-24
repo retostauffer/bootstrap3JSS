@@ -79,7 +79,7 @@ $(document).ready(function() {
 	$("body").on("DOMNodeInserted", "#reviewTabs", function() {
 		var a = $("#reviewTabs ul[role = 'tablist'] > li[role = 'tab'] a:contains('Round\u00a01')")
 		$.each(a, function() {
-			if ($(this).text() == "Round\u00a01") return
+			if ($(this).text() != "Round\u00a01") return
 			$(this).html("Round\u00a01\u00a0(prescreening)"); 
 		});
 	});
