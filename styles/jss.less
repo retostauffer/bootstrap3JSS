@@ -656,6 +656,13 @@ a {
 // -------------- customizing parts of footer -------------
 footer {
 
+	/* Fix 750px fixed width */
+	@media (min-width: 768px) {
+		.container {
+			width: 100%;
+		}
+	}
+
 	.footer-menu {
 		list-style: none;
 		padding-left: 0;
