@@ -656,12 +656,7 @@ a {
 // -------------- customizing parts of footer -------------
 footer {
 
-	/* Fix 750px fixed width */
-	@media (min-width: 768px) {
-		.container {
-			width: 100%;
-		}
-	}
+	overflow: hidden;
 
 	.footer-menu {
 		list-style: none;
@@ -674,6 +669,7 @@ footer {
 			img.img-responsive {
 				width: 100%;
 				margin-top: 1em;
+				padding-right: 2em;
 				max-width: 200px;
 
 			}
