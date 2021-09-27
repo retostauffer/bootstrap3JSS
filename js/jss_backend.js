@@ -71,6 +71,30 @@ $(document).ready(function() {
 
 	});
 
+
+	// -------------------------------------------------------------------
+	// When adding a reviewer we can select a 'review form'.
+	// The default here is 'free form'.
+	// This quick hack here searches for the #reviewFromId, extracts
+	// all options and selectes the last one. This last one is the
+	// one last in order when you go to  Workflow > Review > Forms (can
+	// be re-ordered if needed).
+	// -------------------------------------------------------------------
+	$("body").on("DOMNodeInserted", "#regularReviewerForm", function() {
+
+		var selectBox = $("select#reviewFormId");
+		$.each(selectBox, function() {
+			if (! $(this).hasClass("jss_changed_default")) {
+				$(this).addClass("jss_changed_default")
+				// Search for all select options and auto-select
+				// the last entry.
+				var lastOpt = $(this).find("option").last();
+				$(this).val($(lastOpt).val());
+			}
+		});
+
+	});
+
 	// -------------------------------------------------------------------
 	// Replace a-content (text of link) when we find a hyperref containing "Round&nbsp;1".
 	// Executed every time a #reviewTabs element is added to the DOM.
