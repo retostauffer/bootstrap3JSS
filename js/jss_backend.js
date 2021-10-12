@@ -57,20 +57,57 @@ $(document).ready(function() {
 			});
 		});
 
-		// Next we try to find a hyperlink (a) with the id "importPeerReviews"
-		// and hide it. Would allow to append files to the email sent to the
-		// users; we use an email template which tells the users to log in to 
-		// the system to get the point-to-point review rather than sending
-		// out any kind of files!
-		var importPeerReviewLink = $("#importPeerReviews");
-		var importPeerReviewDiv  = $(importPeerReviewLink).closest("div.section")
-		$.each(importPeerReviewLink, function() {
-			$(this).attr("id", "importPeerReviews_hidden");
-			$(importPeerReviewDiv).css("display", "none");
-		});
-
 	});
 
+
+	// -------------------------------------------------------------------
+	// Manipulate the 'send reviews' form when clicking "Request Revision".
+	//
+	// Compared to default OSJ3 we automatically add the reviews to the
+	// email template by programmatically clicking (and then hiding) the
+	// "Add reviews to email" button and auto-check all attachments.
+	// A note will be shown if successful. Else we do not touch the
+	// form at all not to break functionality.
+	// -------------------------------------------------------------------
+	$("body").on("DOMNodeInserted", "#sendReviews", function() {
+		// We need several elements in place as we modify them
+		// at the same time. This is:
+		// - "div.section > a#importPeerReviews": the "+ Add Review to email" button
+		// - a "table" with an id containing "component-grid-files-attachment-editorselectablereviewattachmentsgrid";
+		//   Note that the id also contains a randomly generated part; thus we must use :contains
+		// - div.jss_notification: if already there we have added it already and don't want to do it again
+		// If both are available we:
+		// - Add a new 'div' element with class 'jss_notification' (see below),
+		// - Press the button a#importPeerReviews (adds reviews to email textarea)
+		//   and add a note to the div.jss_notification thing
+		// - Auto-check all attachment files and also drop a note to
+		//   the div.jss_notification thing
+		//
+		// If anything goes wrong we just don't do anything to avoid to break OJS3 functionality
+		var a_import    = $(this).find("div.section > a#importPeerReviews");
+		var files_table = $(this).find("table[id*='component-grid-files-attachment-editorselectablereviewattachmentsgrid']");
+		var jss_note    = $(this).find("div.jss_notification");
+		if ($(a_import).length == 1 * $(files_table).length == 1 & $(jss_note).length == 0) {
+			// First, add the div.jss_notification to prevent to trigger this again
+			$(a_import).closest("div.section")
+					.before("<div class=\"pkp_notification jss_notification\"><div class=\"notifyInfo\" style=\"margin-bottom: 0;\"></div></div>");
+			var tmp = $("#sendReviews div.jss_notification > div.notifyInfo");
+			$(tmp).html("[JSS: Manipulating form ...]"); // Temporary content
+
+			// Now let us press the link a_import
+			$(a_import).click().hide();
+			$(tmp).html("<b>Note for the editor:</b><br />All review text fields have been included in the e-mail above. Please check that everything is in order.");
+
+			// Check all attachment checkboxes
+			var boxes = $(files_table).find("input[type='checkbox'][name*='selectedAttachments']");
+			var counter = 0;
+			$.each(boxes, function() {
+				$(this).prop("checked", true);
+				counter = counter + 1;
+			});
+			$(tmp).append("<br />All " + counter + " review file have been selected below as attachments to the e-mail. Please check and deselect if needed.");
+		}
+	});
 
 	// -------------------------------------------------------------------
 	// When adding a reviewer we can select a 'review form'.
