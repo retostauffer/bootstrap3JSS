@@ -73,7 +73,8 @@ $(document).ready(function() {
 				var tmp = $(elem).closest("div.content").find(".jss_notification .notifyInfo")
 				$(tmp).html("<strong>Important:</strong><br />" +
 					    "Do <strong>not start a new review</strong> round immediately after requesting revision!<br />" +
-					    "A new round is initialized <strong>after</strong> all <strong>authors revisions</strong> for the this round are in.");
+					    "A new round is initialized <strong>once the authors have uploaded all revisions</strong> and the material is ready for a new review round. " +
+					    "See section 'Revisions' in our <a href=\"/guides/editors\" target=\"_new\">Editorial guide</a>.")
 			}
 		}
 	});
