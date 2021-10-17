@@ -61,6 +61,25 @@ $(document).ready(function() {
 
 
 	// -------------------------------------------------------------------
+	// Adding a note on the form which initializes new review rounds.
+	// 2021-10-17, Reto.
+	// -------------------------------------------------------------------
+	$("body").on("DOMNodeInserted", "#newRoundForm", function() {
+		var elem = $("form#newRoundForm")
+		if (elem.length == 1) {
+			var jss_note = $(elem).closest("div.content").find(".jss_notification > .notifyInfo")
+			if (jss_note.length == 0) {
+				$(elem).before("<div class=\"pkp_notification jss_notification\"><div class=\"notifyInfo\" style=\"margin-bottom: 0;\"></div></div>");
+				var tmp = $(elem).closest("div.content").find(".jss_notification .notifyInfo")
+				$(tmp).html("<strong>Important:</strong><br />" +
+					    "Do <strong>not start a new review</strong> round immediately after requesting revision!<br />" +
+					    "A new round is initialized <strong>after</strong> all <strong>authors revisions</strong> for the this round are in.");
+			}
+		}
+	});
+
+
+	// -------------------------------------------------------------------
 	// Manipulate the 'send reviews' form when clicking "Request Revision".
 	//
 	// Compared to default OSJ3 we automatically add the reviews to the
