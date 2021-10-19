@@ -64,6 +64,40 @@ $(document).ready(function() {
 	// Adding a note on the form which initializes new review rounds.
 	// 2021-10-17, Reto.
 	// -------------------------------------------------------------------
+	$("body").on("DOMNodeInserted", "#addParticipantForm", function() {
+		var elem = $("select[id*='filterUserGroupIdgrid-users-userselect']")
+		if (elem.length == 1) {
+			var cls = "jss_production_editor_autoselector";
+			if (!$(elem).hasClass(cls)) {
+				// First of all add class to prevent being executed once more.
+				$(elem).addClass(cls);
+				// Now adding a 'live' event handler
+				$(elem).on("change", function() {
+					var selected = $(this).find("option:selected");
+					var selected_text = $(selected).text();
+					// If the user selects 'Production editor'
+					// we will check if we have a template called
+					// PRODUCTION_EDITOR_ASSIGNED which is one of our
+					// custom email templates. If so, we auto-select it
+					// and trigger a change which will replace the message
+					// body text with our template automatically.
+					if (selected_text.toLowerCase() == "production editor") {
+						var templates = $("#notifyFormArea select#template");
+						var tmp = $(templates).find("option[value = 'PRODUCTION_EDITOR_ASSIGNED']");
+						if (tmp.length == 1) {
+						    $(templates).val("PRODUCTION_EDITOR_ASSIGNED").trigger("change");
+						}
+					}
+				});
+			}
+		}
+	});
+
+
+	// -------------------------------------------------------------------
+	// Adding a note on the form which initializes new review rounds.
+	// 2021-10-17, Reto.
+	// -------------------------------------------------------------------
 	$("body").on("DOMNodeInserted", "#newRoundForm", function() {
 		var elem = $("form#newRoundForm")
 		if (elem.length == 1) {
