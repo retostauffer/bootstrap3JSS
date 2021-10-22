@@ -39,7 +39,8 @@
 				(including your point-to-point response), you need to inform the editors that
 				your revision is complete. To do so click the <strong>Add discussion</strong>
 				button below, using the subject "Resubmission" and adding all involved section
-				editors and journal editors (if any) as participants. 
+				editors and journal editors (if any) as participants. <br />
+				<strong>Note:</strong> Takes a few seconds until the form is properly loaded, please be patient.
 			</span>
 		</div>
 	</div>
