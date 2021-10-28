@@ -160,7 +160,19 @@ $(document).ready(function() {
 				counter = counter + 1;
 			});
 			$(tmp).append("<br />All " + counter + " review file have been selected below as attachments to the e-mail. Please check and deselect if needed.");
+
+			// Adding additional functionality. When changing the decision
+			// radio button the email template is getting replaced and the
+			// textual reviews are getting deleted. Thus, we have to press
+			// the (now hidden) button again (a_import from above; variable
+			// still exists).
+			$("input[name = 'decision']").on("change", function(x) {
+				$(a_import).click()
+				$(tmp).append("<br />Decision/email template changed, textual reviews added again.")
+			})
 		}
+
+
 	});
 
 	// -------------------------------------------------------------------
