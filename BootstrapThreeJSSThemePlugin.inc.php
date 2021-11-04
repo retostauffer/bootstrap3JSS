@@ -68,17 +68,15 @@ class BootstrapThreeJSSThemePlugin extends ThemePlugin {
             $smarty =& $args[1];
             $output =& $args[2];
 
-            $article = $smarty->getTemplateVars('article');
-            $pubid   = $article->getStoredPubId("publisher-id");
-
+            $article     = $smarty->getTemplateVars('article');
+            $publication = $article->getCurrentPublication();
+            $urlPath     = $publication->getData('urlPath');
 
             // Default is "N/A"
             $output = "N/A";
-            if (is_string($pubid)) {
-            	preg_match("/[0-9]+$/", $pubid, $res);
-            	if (is_array($res)) {
-            		$output = sprintf("%d", (int)$res[0]);
-            	}
+            preg_match("/^v([0-9]+)(\w)([0-9]+)$/", $urlPath, $res);
+            if (is_array($res) && count($res) == 4) {
+            	$output = sprintf("%d", (int)$res[3]);
             }
 
             return false;
