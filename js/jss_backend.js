@@ -25,9 +25,11 @@ $(document).ready(function() {
 		// to a new review round" (text may be changed).
 		var decisionResubmit = $("#decisionResubmit");
 		$.each(decisionResubmit, function() {
-			if (!$(this).is(":checked")) {
-				$(this).attr("checked", true);
-				console.log($(this));
+			if (!$(this).hasClass("jss_autocheck")) {
+				$(this).prop("checked", true).delay(250).queue(function() {
+					$(this).change();
+					$(this).addClass("jss_autocheck");
+				});
 			}
 		});
 
