@@ -2,16 +2,16 @@
 
 $(document).ready(function() {
 
-    // Temporarily remove stats stuff
-    //var stats_nav = $("nav.app__nav div.app__navItem:contains('Statistics')").closest("li");
-	//$("body").on("DOMNodeInserted", "nav.app_nav div.app__navItem", function() {
-    var nav_stats = $("nav.app__nav div.app__navItem:contains('Statistics')")
-    if (nav_stats.length == 1) {
-        var li = $(nav_stats).closest("li.app__navGroup");
-        $(li).find("ul").remove();
-        $(li).append("<p style='margin: 0 .5em; color: gray;'>Temporarily removed " +
-                     "as can cause high CPU load (Reto).</p>");
-    }
+	//////// Temporarily remove stats stuff
+	////////var stats_nav = $("nav.app__nav div.app__navItem:contains('Statistics')").closest("li");
+	//////    //$("body").on("DOMNodeInserted", "nav.app_nav div.app__navItem", function() {
+	//////var nav_stats = $("nav.app__nav div.app__navItem:contains('Statistics')")
+	//////if (nav_stats.length == 1) {
+	//////    var li = $(nav_stats).closest("li.app__navGroup");
+	//////    $(li).find("ul").remove();
+	//////    $(li).append("<p style='margin: 0 .5em; color: gray;'>Temporarily removed " +
+	//////                 "as can cause high CPU load (Reto).</p>");
+	//////}
 
 
 	// -------------------------------------------------------------------
