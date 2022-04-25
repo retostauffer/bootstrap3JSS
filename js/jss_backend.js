@@ -12,6 +12,8 @@ $(document).ready(function() {
 	//////    $(li).append("<p style='margin: 0 .5em; color: gray;'>Temporarily removed " +
 	//////                 "as can cause high CPU load (Reto).</p>");
 	//////}
+	
+
 
 
 	// -------------------------------------------------------------------
@@ -70,6 +72,27 @@ $(document).ready(function() {
 				$(this).find("div").show();
 			});
 		});
+
+
+		// The 'Add discussion' form takes quite a while to load and
+		// some users might click 'close' too ealry (resulting in an empty
+		// discussion). Thus, if we find the 'Add discussion' header div
+		// we modify the input.
+		//
+		// The element we are interested in is (XPath):
+		// - //div[contains(@class, "pkp_modal_panel")]/div[@class = "header"]
+		// ... we are already in the ".pkp_modal_panel" has been added to the
+		// DOM, we now try to identify the element and change it if needed.
+		console.log("Looking for divs")
+		var adtitle = $("div.pkp_modal_panel > div.header");
+		console.log(adtitle.length)
+		var title_to_find = "Add discussion"
+		$.each(adtitle, function() {
+			if ($(this).html() == title_to_find) {
+				$(this).html(title_to_find + "<div class=\"jss_subtitle\">Please wait while form is loading.</div>");
+			}
+		});
+
 
 	});
 
