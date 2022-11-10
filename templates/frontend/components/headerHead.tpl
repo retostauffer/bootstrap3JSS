@@ -46,6 +46,10 @@
 		{capture assign=ogDescription}{"`$currentContext->getLocalizedName()`"}{/capture}
 	{/if}
 
+	{* link to claim the website for mastodon/fosstodon *}
+	<link rel="me" href="https://fosstodon.org/@jstatsoft"> 
+
+	{* twitter card settings *}
 	<meta name="og:title" content="{$ogTitle}" />
 	<meta name="og:description" content="{$ogDescription}" />
 	<meta name="og:image" content="{$baseUrl}/plugins/themes/bootstrap3JSS/images/jsslogo.jpg" />
