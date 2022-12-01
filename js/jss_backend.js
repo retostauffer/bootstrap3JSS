@@ -183,11 +183,14 @@ $(document).ready(function() {
 			$(a_import).closest("div.section")
 					.before("<div class=\"pkp_notification jss_notification\"><div class=\"notifyInfo\" style=\"margin-bottom: 0;\"></div></div>");
 			var tmp = $("#sendReviews div.jss_notification > div.notifyInfo");
-			$(tmp).html("[JSS: Manipulating form ...]"); // Temporary content
+			$(tmp).html("<b>Note for the editor:</b>"); // Temporary content
 
 			// Now let us press the link a_import
-			$(a_import).click().hide();
-			$(tmp).html("<b>Note for the editor:</b><br />All review text fields have been included in the e-mail above. Please check that everything is in order.");
+			$(a_import).hide();
+			setTimeout(function() {
+				$(a_import).click();
+				$(tmp).append("<br/> All review text fields have been included in the e-mail above. Please check that everything is in order.");
+			}, 1000);
 
 			// Check all attachment checkboxes
 			var boxes = $(files_table).find("input[type='checkbox'][name*='selectedAttachments']");
@@ -204,8 +207,10 @@ $(document).ready(function() {
 			// the (now hidden) button again (a_import from above; variable
 			// still exists).
 			$("input[name = 'decision']").on("change", function(x) {
-				$(a_import).click()
-				$(tmp).append("<br />Decision/email template changed, textual reviews added again.")
+				setTimeout(function() {
+					$(a_import).click()
+					$(tmp).append("<br />Decision/email template changed, textual reviews added again.")
+				}, 1000)
 			})
 		}
 
