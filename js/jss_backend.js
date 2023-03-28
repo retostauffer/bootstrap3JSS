@@ -22,6 +22,18 @@ $(document).ready(function() {
 	// -------------------------------------------------------------------
 	$("body").on("DOMNodeInserted", ".pkp_modal_panel", function() {
 
+        // Hide checkbox "sendIssueNotification" to aviod triggering
+        // tens of thousands of emails to all of our users.
+        var sendIssueNotification = $("#sendIssueNotification");
+        $.each(sendIssueNotification, function() {
+            if (!$(this).hasClass("jss_autodisabled")) {
+                $(this).addClass("jss_autodisabled");
+                $(this).prop("checked", false).prop("disabled", true);
+                $(this).change();
+                $(this).closest(".section").append("<div style=\"padding-top: 3em;\" class=\"pkp_notification jss_notification\"><div class=\"notifyInfo\">Sending emails to all users has been automatically disabled.</div></div>");
+            }
+        });
+
 		// Change default decision when a user clicks
 		// "Request Revision". Change to "Revision will be subject
 		// to a new review round" (text may be changed).
