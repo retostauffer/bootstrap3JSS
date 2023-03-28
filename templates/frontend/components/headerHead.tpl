@@ -47,7 +47,7 @@
 	{/if}
 
 	{* link to claim the website for mastodon/fosstodon *}
-	<link rel="me" href="https://fosstodon.org/@jstatsoft"> 
+	<link rel="me" href="https://fosstodon.org/@jstatsoft" />
 
 	{* twitter card settings *}
 	<meta name="og:title" content="{$ogTitle}" />
