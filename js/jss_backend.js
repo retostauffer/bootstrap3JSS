@@ -59,7 +59,7 @@ $(document).ready(function() {
 
 			// There is no div.section? Well ... back to the keyboard, Reto
 			if (skipEmailDiv.length != 1) {
-				alert("Shit, call Reto")
+				alert("Small issue setting up the form properly: Contact Reto Stauffer (Technical Editor) [error: cannot find skipEmailDiv in recommendation form]");
 				return;
 			}
 
@@ -83,7 +83,48 @@ $(document).ready(function() {
 			$(newdiv_msg).on("click", function() {
 				$(this).find("div").show();
 			});
-		});
+        });
+
+        // Similar to the code chunk above: Hiding the options
+        // for selecting "Do not create a review discussion" to 
+        // avoid SEs to click on it. However, there is an option
+        // (as above) to change this decision if needed.
+		var skipDiscussionSend = $("#skipDiscussion-send");
+		$.each(skipDiscussionSend, function() {
+
+			// Now find closest div.section
+			var skipDiscussionDiv = $(this).closest("div.section")
+			console.log(skipDiscussionDiv)
+
+			// There is no div.section? Well ... back to the keyboard, Reto
+			if (skipDiscussionDiv.length != 1) {
+				alert("Small issue setting up the form properly: Contact Reto Stauffer (Technical Editor) [error: Cannot find skipDiscussionDiv in recommendation form]");
+				return;
+			}
+
+			// Change id of the object found. Else it would be found
+			// infinite times.
+			$(this).attr("id", "skipDiscussion-send-manipulated");
+
+			// Now do the following with it
+			// - extract content
+			// - remove the id from the div; add new id and class (we won't rely
+			//   on the id for further manipulation in case it occurs more than
+			//   once - which is should not!)
+			// - add content of existing div to the new div
+			var old_content = $(skipDiscussionDiv).html();
+			var newdiv_msg = $(skipDiscussionDiv).empty()
+				.html("<span class=\"jss_skipdiscussion_hidden_change\">A review discussion will be started (click to change decision).</span>")
+				.append("<div class=\"jss_skipdiscussion_hidden\"></div>");
+
+			var newdiv_content = $(newdiv_msg).find("div").html(old_content);
+            $(newdiv_msg).find("div").prepend("<label>Start discussion with journal editor(s)</label></div>");
+
+			// Now add interaction
+			$(newdiv_msg).on("click", function() {
+				$(this).find("div").show();
+			});
+        });
 
 
 		// The 'Add discussion' form takes quite a while to load and
