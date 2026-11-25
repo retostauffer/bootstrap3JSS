@@ -13,19 +13,24 @@
 	<h2 class="title">{translate|escape key="plugins.themes.bootstrap3JSS.sponsors"}</h2>
 	    <div class="content">
 	    <div class="row">
-	        <div class="col-xs-4">
-	                <a class="image-link" href="https://uibk.ac.at/", target="_new">
-	                <img src="{$baseUrl}/plugins/themes/bootstrap3JSS/images/logos/uibk.png" />
-	                </a>
+	        <div class="col-xs-6">
+			<a class="image-link" href="https://uibk.ac.at/" title="University of Innsbruck" target="_new">
+			<img src="{$baseUrl}/plugins/themes/bootstrap3JSS/images/logos/uibk.png" />
+                        </a>
 	        </div>  
-	        <div class="col-xs-4">
-	                <a class="image-link" href="https://www.uzh.ch/", target="_new">
+	        <div class="col-xs-6">
+	                <a class="image-link" href="https://uzh.ch/" title="Universität Zürich" target="_new">
 	                        <img src="{$baseUrl}/plugins/themes/bootstrap3JSS/images/logos/uzh.png" />
 	                </a>
 	        </div>  
-	        <div class="col-xs-4">
-	                <a class="image-link" href="https://ucla.edu/", target="_new">
+	        <div class="col-xs-6">
+	                <a class="image-link" href="https://ucla.edu/" title="University of California, Los Angeles" target="_new">
 	                        <img src="{$baseUrl}/plugins/themes/bootstrap3JSS/images/logos/ucla.png" />
+	                </a>
+	        </div>  
+	        <div class="col-xs-6">
+	                <a class="image-link" href="https://codoa.ch/" title="CoDOA" target="_new">
+	                        <img src="{$baseUrl}/plugins/themes/bootstrap3JSS/images/logos/codoa.svg" />
 	                </a>
 	        </div>  
 	    
